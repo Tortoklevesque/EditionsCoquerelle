@@ -6,6 +6,8 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 - Nom de domaine `.ca` : déjà acheté par Simon.
 - Transactions : gérées via **Square** (abonnement déjà acheté par Simon) — boutons/liens Square intégrés côté client, pas de backend de paiement à développer.
 - Design : site adaptatif (responsive), rendu identique en mobile et grand écran.
+- Site simple : image de **Bourtouk** affichée en grand (page d'accueil), palette de couleurs du site basée sur les couleurs de cette image. Fichier reçu : `images/bourtouk-couleur.png`.
+- Accessibilité : respect des règles de base (contraste suffisant, texte alternatif sur les images, navigation au clavier, HTML sémantique). Le menu traditionnel (en parallèle du « bonhomme » cliquable, voir plus bas) sert notamment d'équivalent accessible à la navigation par image.
 
 ## Hébergement et dépôt — décisions prises
 - **GitHub Pages**, gratuit, supporte le domaine `.ca` personnalisé + HTTPS automatique. Pas besoin de Netlify/Cloudflare pour l'instant.

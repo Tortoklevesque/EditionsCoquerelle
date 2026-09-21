@@ -3,7 +3,7 @@
 ## Identité visuelle
 - Nom officiel de la maison d'édition (si différent du nom de domaine)
 - Logo et favicon (icône d'onglet)
-- Palette de couleurs / ambiance visuelle souhaitée (sobre, coloré, littéraire, jeunesse...)
+- ~~Palette de couleurs~~ → réglé : basée sur les couleurs de l'image `images/bourtouk-couleur.png`
 - Description détaillée du site : sections voulues, ton, ambiance générale
 
 ## Pour chaque livre/histoire
@@ -16,7 +16,7 @@
 - Indiquer lesquels sont « vedettes » (pour le carousel d'accueil)
 
 ## Le bonhomme cliquable
-- Illustration du bonhomme (haute résolution, zones du corps bien distinctes visuellement)
+- Confirmer : `images/bourtouk-couleur.png` (reçu) est-elle l'illustration à utiliser pour le bonhomme cliquable ? Si oui, est-elle en assez haute résolution, avec des zones du corps bien distinctes visuellement ?
 - Confirmation des zones et destinations :
   - main → boutique
   - ventre → extraits gratuits
