@@ -39,11 +39,13 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 ## Fonctionnalités discutées
 - **Zones cliquables sur une image** : éviter le `<map>/<area>` HTML classique (coordonnées en pixels, casse en responsive). Préférer des liens positionnés en `%` ou un overlay SVG, qui suivent la taille du conteneur.
   - Usage confirmé : un « bonhomme » illustré avec zones cliquables sur différentes parties du corps :
-    - main → boutique (site)
+    - main → catalogue (site)
     - ventre → extraits gratuits
     - fesses → boutique Amazon
   - Un **menu traditionnel** sera aussi présent en parallèle (navigation standard, en plus du bonhomme).
 - **Carousel** : faisable en CSS natif (`scroll-snap`) ou petite librairie JS. Peut se brancher sur le champ `vedette: true` des fichiers de livres pour alimenter automatiquement le carousel de la page d'accueil.
+- **Extrait aléatoire (à développer)** : page Extraits gratuits (`extraits.md`) avec un bouton « Générer un nouvel extrait aléatoire ». Prévu à terme : une collection Jekyll (type `_extraits/`, même principe que `_livres/`/`_histoires/`) avec un fichier par extrait ; le bouton pigerait un extrait au hasard dans cette collection. Pas encore implémenté — le bouton pointe pour l'instant vers une page stub (`extrait-aleatoire.md`, contenu : « Fonctionnalité extrait à développer »).
+- **Lien produit Square** : Square permet de lier directement vers la fiche d'un produit (page produit Square Online, ou un « Checkout Link » généré depuis le tableau de bord Square). Sur la page Extraits gratuits, le titre du livre est en hyperlien vers cette fiche — lien encore en placeholder (`#`, marqué TODO dans `extraits.md`) en attendant que Simon crée la fiche produit sur Square et fournisse l'URL.
 
 ## Configuration technique — domaine, DNS, SEO
 - **Domaine personnalisé (pas une redirection)** : GitHub Pages sert le site directement sous `editioncoquerelle.ca` (le visiteur ne voit jamais l'URL `github.io`). Nécessite :
@@ -61,6 +63,9 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - Images, icônes du site.
 - Description détaillée du site (contenu, sections, ton, structure souhaitée).
 - Liste complète dans `informations-a-completer.md`.
+
+## Plan du site
+Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 
 ## Étapes suivantes (non commencées)
 - Premier commit + push (CLAUDE.md, informations-a-completer.md) pour créer la branche `main` sur le repo distant.

@@ -1,0 +1,11 @@
+title: Éditions Coquerelle
+description: >-
+  Maison d'édition — livres et histoires.
+lang: fr
+
+exclude:
+  - CLAUDE.md
+  - SITEMAP.md
+  - informations-a-completer.md
+  - _livres/GABARIT.md
+  - _histoires/GABARIT.md

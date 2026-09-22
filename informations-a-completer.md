@@ -14,17 +14,18 @@
 - Extrait gratuit (texte ou fichier PDF), si tu veux l'offrir
 - Lien vers la fiche Amazon, si vente là aussi
 - Indiquer lesquels sont « vedettes » (pour le carousel d'accueil)
+- Le catalogue (page Catalogue, carousels Livres/Histoires) contient pour l'instant des cartes wireframe avec images génériques et titres de remplissage (histoires : « La bébite », « Chaos dans la piscine », etc.) — à remplacer par les vrais titres/couvertures/contenus.
 
 ## Le bonhomme cliquable
 - Confirmer : `images/bourtouk-couleur.png` (reçu) est-elle l'illustration à utiliser pour le bonhomme cliquable ? Si oui, est-elle en assez haute résolution, avec des zones du corps bien distinctes visuellement ?
 - Confirmation des zones et destinations :
-  - main → boutique
+  - main → catalogue
   - ventre → extraits gratuits
   - fesses → boutique Amazon
   - d'autres zones/liens souhaités ?
 
 ## Navigation / structure du site
-- Liste des pages voulues pour le menu traditionnel (ex. : Accueil, Boutique, À propos, Extraits, Contact...)
+- Liste des pages voulues pour le menu traditionnel (ex. : Accueil, Catalogue, À propos, Extraits, Contact...)
 - Liens réseaux sociaux à afficher, s'il y en a
 
 ## Technique

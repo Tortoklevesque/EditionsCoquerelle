@@ -1,0 +1,463 @@
+/* Palette officielle — dérivée de l'illustration de Bourtouk (images/bourtouk-couleur.png) */
+:root {
+  --color-primary: #e8622c;       /* orange (cheveux) */
+  --color-primary-dark: #c64e1d;
+  --color-accent: #f6c915;        /* jaune (étoiles, logo coquerelle) */
+  --color-secondary: #3faeea;     /* bleu (souliers) */
+  --color-highlight: #e63328;     /* rouge (nez, bouche) */
+
+  --color-bg: #fdf8f0;            /* fond crème clair */
+  --color-surface: #ffffff;
+  --color-text: #2e241c;          /* brun foncé, plus chaud qu'un noir pur */
+  --color-text-muted: #6b5c4e;
+  --color-border: #e4d9c7;
+
+  --color-footer-bg: #2e241c;
+  --color-footer-text: #fdf8f0;
+
+  --header-height: 4rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+/* En-tête */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-height);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.site-logo:hover,
+.site-logo:focus {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.site-logo img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+/* Bouton hamburger */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-bar {
+  width: 1.5rem;
+  height: 3px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menu de navigation */
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1.25rem;
+  min-width: 200px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 24px rgba(46, 36, 28, 0.15);
+  padding: 0.5rem;
+}
+
+.nav-menu.is-open {
+  display: block;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.375rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Fil d'Ariane (sous-pages) */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.breadcrumb a {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.breadcrumb-separator {
+  color: var(--color-text-muted);
+}
+
+.breadcrumb-current {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Contenu principal */
+main {
+  min-height: 60vh;
+}
+
+.page-content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.page-content.wide {
+  max-width: 900px;
+}
+
+.page-content h1 {
+  margin-bottom: 1rem;
+}
+
+.page-content p + p {
+  margin-top: 1rem;
+}
+
+.page-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.portrait-placeholder {
+  float: left;
+  width: 220px;
+  aspect-ratio: 3 / 4;
+  margin: 0 1.5rem 1rem 0;
+  background: var(--color-border);
+  border: 1px dashed var(--color-text-muted);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.extract-source {
+  clear: both;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.button {
+  display: inline-block;
+  clear: both;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--color-primary-dark);
+  color: #fff;
+  text-decoration: none;
+}
+
+.page-footer-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.page-footer-logo {
+  width: 2rem;
+  height: 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2.5rem 1.25rem 1.5rem;
+}
+
+.hero-image {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.hero-note {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding-bottom: 2rem;
+}
+
+/* Bonhomme cliquable : zones en % pour rester alignées avec l'image en responsive */
+.bonhomme {
+  position: relative;
+  display: inline-block;
+  max-width: 420px;
+}
+
+.bonhomme-zone {
+  position: absolute;
+  display: block;
+  border-radius: 12px;
+  cursor: pointer;
+  background: transparent;
+  transition: background 0.15s ease;
+}
+
+.bonhomme-zone:hover,
+.bonhomme-zone:focus-visible {
+  background: rgba(246, 201, 21, 0.3);
+}
+
+.bonhomme-zone::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -6px);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.375rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  z-index: 5;
+}
+
+.bonhomme-zone:hover::after,
+.bonhomme-zone:focus-visible::after {
+  opacity: 1;
+}
+
+/* Catalogue : sections + carousels */
+.catalogue-section {
+  margin-top: 2.5rem;
+}
+
+.catalogue-section:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.catalogue-section h2 {
+  margin-bottom: 1rem;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.25rem 0.1rem;
+  flex: 1;
+}
+
+.carousel-card {
+  flex: 0 0 160px;
+  scroll-snap-align: start;
+  display: block;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.carousel-card:hover .card-title,
+.carousel-card:focus-visible .card-title {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.card-image-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: var(--color-border);
+  border: 1px dashed var(--color-text-muted);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.card-title {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.carousel-btn {
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  background: var(--color-bg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Séparateur avant le footer */
+.section-separator {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+  margin: 2rem 1.25rem 0;
+}
+
+/* Pied de page */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 2rem 1.25rem;
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  text-align: center;
+}
+
+.footer-logo {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-name {
+  font-weight: 600;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}

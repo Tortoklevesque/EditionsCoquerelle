@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="icon" href="{{ '/images/logo-coquerelle.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-logo" href="{{ '/' | relative_url }}">
+      <img src="{{ '/images/logo-coquerelle.png' | relative_url }}" alt="">
+      <span class="site-name">Éditions Coquerelle</span>
+    </a>
+
+    <button class="hamburger" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Ouvrir le menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <nav id="nav-menu" class="nav-menu" aria-label="Navigation principale">
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Accueil</a></li>
+        <li><a href="{{ '/catalogue/' | relative_url }}">Catalogue</a></li>
+        <li><a href="{{ '/extraits/' | relative_url }}">Extraits gratuits</a></li>
+        <li><a href="{{ '/auteur/' | relative_url }}">Auteur</a></li>
+        <li><a href="{{ '/editeur/' | relative_url }}">Éditeur</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  {% unless page.url == "/" %}
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <a href="{{ '/' | relative_url }}" aria-label="Retour à l'accueil">
+      <img class="breadcrumb-logo" src="{{ '/images/logo-coquerelle.png' | relative_url }}" alt="">
+    </a>
+    <span class="breadcrumb-separator" aria-hidden="true">&rsaquo;</span>
+    <span class="breadcrumb-current">{{ page.title }}</span>
+  </nav>
+  {% endunless %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  <hr class="section-separator">
+
+  <footer class="site-footer">
+    <img class="footer-logo" src="{{ '/images/logo-coquerelle.png' | relative_url }}" alt="">
+    <p class="footer-name">Éditions Coquerelle</p>
+    <p class="footer-copyright">&copy; 2026 Éditions Coquerelle</p>
+  </footer>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
