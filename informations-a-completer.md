@@ -1,8 +1,8 @@
 # Infos à préparer pour le site web
 
 ## Identité visuelle
-- Nom officiel de la maison d'édition (si différent du nom de domaine)
-- Logo et favicon (icône d'onglet)
+- Nom officiel de la maison d'édition (si différent du nom de domaine)  Les Éditions Coquerelle
+- Logo et favicon (icône d'onglet) C'est le dessin de la coquerelle
 - ~~Palette de couleurs~~ → réglé : basée sur les couleurs de l'image `images/bourtouk-couleur.png`
 - Description détaillée du site : sections voulues, ton, ambiance générale
 
