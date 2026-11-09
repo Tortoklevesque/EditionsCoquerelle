@@ -3,7 +3,7 @@
 ## Contexte
 Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histoires et livres et les vendre en ligne.
 
-- Nom de domaine `.ca` : déjà acheté par Simon.
+- Nom de domaine : `editionscoquerelle.ca`, acheté par Simon chez WHC (Web Hosting Canada) ; vérifié le 2026-11-09 : domaine stationné (DNS parking1/parking2.whc.ca) avec redirection de courriel active (MX `emailfwd.editionscoquerelle.ca`).
 - **Changement de plan (2026-11-09)** : Simon veut d'abord un **site de base** mis en ligne rapidement, pour avoir une présence web avant de démarcher les librairies. Les fonctionnalités avancées passent après.
 - Vente : **lien vers Amazon** pour le livre *Tortok* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur : `https://www.amazon.ca/dp/2982553309` (adresse directe de la fiche, ISBN/ASIN 2982553309). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
 - Design : site adaptatif (responsive), rendu identique en mobile et grand écran.
@@ -51,9 +51,9 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`site.lien_amazon_tortok`, nouvel onglet). Les autres cartes du catalogue (tomes à venir, histoires) restent sans lien (`#`).
 
 ## Configuration technique — domaine, DNS, SEO
-- **Domaine personnalisé (pas une redirection)** : GitHub Pages sert le site directement sous `editioncoquerelle.ca` (le visiteur ne voit jamais l'URL `github.io`). Nécessite :
-  - Un fichier `CNAME` (sans extension) à la racine du repo, contenant le domaine (ex. `editioncoquerelle.ca`).
-  - Dans le DNS du domaine (chez le registrar de Simon) : enregistrements **A** vers les 4 IP de GitHub Pages (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) pour le domaine nu, et/ou un **CNAME** pour `www` vers `gitsimon.github.io`.
+- **Domaine personnalisé (pas une redirection)** : GitHub Pages sert le site directement sous `editionscoquerelle.ca` (le visiteur ne voit jamais l'URL `github.io`). Nécessite :
+  - Un fichier `CNAME` (sans extension) à la racine du repo, contenant le domaine (ex. `editionscoquerelle.ca`).
+  - Dans le DNS du domaine (chez le registrar de Simon) : enregistrements **A** vers les 4 IP de GitHub Pages (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) pour le domaine nu, et/ou un **CNAME** pour `www` vers `tortoklevesque.github.io`.
   - Une fois le DNS propagé, activer « Enforce HTTPS » dans Settings → Pages du repo (certificat généré automatiquement par GitHub).
 - **index.html à la racine** : requis pour que GitHub Pages serve la page d'accueil (avec Jekyll, `index.md` est converti automatiquement).
 - **Indexation Google** : pas automatique/garantie rapidement pour un domaine neuf. À faire :
