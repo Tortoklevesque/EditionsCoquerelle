@@ -23,3 +23,16 @@ title: Accueil
 </section>
 
 <p class="hero-note">Bourtouk veut que tu le touches, explore-le pour découvrir ce qu'il a à t'offrir.</p>
+
+<section class="nouvelles" aria-labelledby="nouvelles-titre">
+  <h2 id="nouvelles-titre">Nouvelles</h2>
+  <a class="nouvelle-carte" href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">
+    <img class="nouvelle-image" src="{{ '/images/cover_tortok.jpg' | relative_url }}" alt="">
+    <span class="nouvelle-texte">
+      <span class="badge">Maintenant disponible</span>
+      <span class="nouvelle-titre">Tortok</span>
+      <span class="nouvelle-auteur">Simon Lévesque</span>
+      <span class="nouvelle-action">Acheter sur Amazon <span class="visually-hidden">(nouvel onglet)</span></span>
+    </span>
+  </a>
+</section>
