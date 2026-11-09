@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Accueil
+title: Éditions Coquerelle
 ---
 
 <section class="hero">
