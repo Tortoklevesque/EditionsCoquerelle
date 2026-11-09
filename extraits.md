@@ -8,9 +8,7 @@ permalink: /extraits/
 
 # Extraits gratuits
 
-<div class="portrait-placeholder" role="img" aria-label="Couverture de Tortok (image à venir)">
-  <span>Tortok<br>Couverture à venir</span>
-</div>
+<img class="cover-image" src="{{ '/images/cover_tortok.jpg' | relative_url }}" alt="Couverture du livre Tortok de Simon Lévesque">
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 

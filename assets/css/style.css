@@ -235,6 +235,23 @@ main {
   font-size: 0.85rem;
 }
 
+.cover-image {
+  float: left;
+  width: 220px;
+  height: auto;
+  margin: 0 1.5rem 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+  .cover-image {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+}
+
 .extract-source {
   clear: both;
   margin-top: 1rem;
@@ -375,6 +392,14 @@ main {
 .carousel-card:focus-visible .card-title {
   color: var(--color-primary);
   text-decoration: underline;
+}
+
+.card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 .card-image-placeholder {
