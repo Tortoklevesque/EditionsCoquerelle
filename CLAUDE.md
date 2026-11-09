@@ -57,8 +57,8 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
   - Une fois le DNS propagé, activer « Enforce HTTPS » dans Settings → Pages du repo (certificat généré automatiquement par GitHub).
 - **index.html à la racine** : requis pour que GitHub Pages serve la page d'accueil (avec Jekyll, `index.md` est converti automatiquement).
 - **Indexation Google** : pas automatique/garantie rapidement pour un domaine neuf. À faire :
-  - Générer un `sitemap.xml` (plugin `jekyll-sitemap`) et un `robots.txt`.
-  - Créer un compte Google Search Console, valider la propriété du domaine, soumettre le sitemap.
+  - Fait (2026-11-09) : `sitemap.xml` généré par `jekyll-sitemap` (déclaré dans `plugins` de `_config.yml`) et `robots.txt` (pointe vers le sitemap via `absolute_url`, suit donc le domaine). Métadonnées JSON-LD `Book` pour Tortok (`_data/tortok.yml`, `_includes/tortok-jsonld.html`). `robots.txt` n'est lu par les robots qu'à la racine d'un domaine : effectif seulement une fois `editionscoquerelle.ca` branché.
+  - À faire : propriété Google Search Console (compte Google de Simon, idéalement après le branchement du domaine `.ca`), validation par enregistrement TXT chez WHC, soumission du sitemap, demande d'indexation de l'accueil.
   - Titres et descriptions uniques par page/livre (via le front matter Jekyll).
 - **Push automatisé par Claude Code** : possible une fois le repo cloné localement et l'authentification GitHub configurée (`gh auth login`, clé SSH, ou token). Par défaut, confirmation demandée à chaque push (action affectant un dépôt partagé) sauf indication contraire du développeur.
 
