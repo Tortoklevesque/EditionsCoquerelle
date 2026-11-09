@@ -3,8 +3,8 @@ description: >-
   Maison d'édition — livres et histoires.
 lang: fr
 
-# Lien de vente Amazon du livre Tortok (fiche produit, lien court fourni par Simon).
-lien_amazon_tortok: "https://a.co/d/04kA2veY"
+# Lien de vente Amazon du livre Tortok (fiche produit, adresse directe).
+lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
 
 exclude:
   - CLAUDE.md
