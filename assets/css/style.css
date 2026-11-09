@@ -504,3 +504,15 @@ a.carousel-card:focus-visible .card-title {
   color: var(--color-text-muted);
   font-style: italic;
 }
+
+/* Lien « Éditions Coquerelle » du footer : même couleur que le texte du footer (contraste sur fond foncé) */
+.footer-name a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.footer-name a:hover,
+.footer-name a:focus-visible {
+  color: var(--color-accent);
+}
