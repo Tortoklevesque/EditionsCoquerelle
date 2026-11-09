@@ -15,7 +15,7 @@ permalink: /catalogue/
     <div class="carousel-track" aria-label="Carrousel des livres">
       <a class="carousel-card" href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
-        <p class="card-title">TORTOK : le barbare <span class="visually-hidden">(acheter sur Amazon, nouvel onglet)</span></p>
+        <p class="card-title">Tortok <span class="visually-hidden">(acheter sur Amazon, nouvel onglet)</span></p>
       </a>
       <a class="carousel-card" href="#">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>

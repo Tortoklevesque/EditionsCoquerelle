@@ -5,7 +5,7 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 
 - Nom de domaine `.ca` : déjà acheté par Simon.
 - **Changement de plan (2026-11-09)** : Simon veut d'abord un **site de base** mis en ligne rapidement, pour avoir une présence web avant de démarcher les librairies. Les fonctionnalités avancées passent après.
-- Vente : **lien vers Amazon** pour le livre *Tortok : le barbare* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur : `https://www.amazon.ca/dp/2982553309` (adresse directe de la fiche, ISBN/ASIN 2982553309). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
+- Vente : **lien vers Amazon** pour le livre *Tortok* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur : `https://www.amazon.ca/dp/2982553309` (adresse directe de la fiche, ISBN/ASIN 2982553309). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
 - Design : site adaptatif (responsive), rendu identique en mobile et grand écran.
 - Site simple : image de **Bourtouk** affichée en grand (page d'accueil), palette de couleurs du site basée sur les couleurs de cette image. Fichier reçu : `images/bourtouk-couleur.png`.
 - Accessibilité : respect des règles de base (contraste suffisant, texte alternatif sur les images, navigation au clavier, HTML sémantique). Le menu traditionnel (en parallèle du « bonhomme » cliquable, voir plus bas) sert notamment d'équivalent accessible à la navigation par image.
