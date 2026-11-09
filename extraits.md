@@ -4,7 +4,7 @@ title: Extraits gratuits
 permalink: /extraits/
 ---
 
-<div class="page-content">
+<div class="page-content" markdown="1">
 
 # Extraits gratuits
 

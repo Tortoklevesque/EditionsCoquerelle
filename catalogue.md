@@ -4,7 +4,7 @@ title: Catalogue
 permalink: /catalogue/
 ---
 
-<div class="page-content wide">
+<div class="page-content wide" markdown="1">
 
 # Catalogue
 

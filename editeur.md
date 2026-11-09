@@ -4,7 +4,7 @@ title: Éditeur
 permalink: /editeur/
 ---
 
-<div class="page-content">
+<div class="page-content" markdown="1">
 
 # Éditeur
 
