@@ -19,14 +19,14 @@ permalink: /catalogue/
         <img class="card-image" src="{{ '/images/cover_tortok.jpg' | relative_url }}" alt="">
         <p class="card-title">Tortok <span class="visually-hidden">(acheter sur Amazon, nouvel onglet)</span></p>
       </a>
-      <a class="carousel-card" href="#">
+      <div class="carousel-card">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
         <p class="card-title">Tome 2 (à venir)</p>
-      </a>
-      <a class="carousel-card" href="#">
+      </div>
+      <div class="carousel-card">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
         <p class="card-title">Tome 3 (à venir)</p>
-      </a>
+      </div>
     </div>
     <button class="carousel-btn carousel-btn--next" type="button" aria-label="Livres suivants">&rsaquo;</button>
   </div>

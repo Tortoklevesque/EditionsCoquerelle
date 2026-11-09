@@ -388,8 +388,8 @@ main {
   text-decoration: none;
 }
 
-.carousel-card:hover .card-title,
-.carousel-card:focus-visible .card-title {
+a.carousel-card:hover .card-title,
+a.carousel-card:focus-visible .card-title {
   color: var(--color-primary);
   text-decoration: underline;
 }
