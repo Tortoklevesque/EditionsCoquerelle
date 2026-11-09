@@ -8,6 +8,15 @@ lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
 
 plugins:
   - jekyll-sitemap   # génère /sitemap.xml (plugin supporté nativement par GitHub Pages)
+  - jekyll-seo-tag   # balises de partage (Open Graph, Twitter), meta description, URL canonique
+
+# Balises de partage : langue et image par défaut (une page peut la remplacer avec « image: » dans son front matter)
+locale: fr_CA
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/bourtouk-couleur.png
 
 collections:
   extraits:
