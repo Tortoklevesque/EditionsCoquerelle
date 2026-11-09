@@ -34,6 +34,10 @@ permalink: /catalogue/
 
 <section class="catalogue-section">
   <h2>Histoires</h2>
+  <p class="a-venir">À venir</p>
+  {% comment %}
+  Carrousel des histoires désactivé tant qu'aucune histoire n'est publiée.
+  Pour le réactiver : retirer les balises comment/endcomment et le paragraphe « À venir » ci-dessus.
   <div class="carousel">
     <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Histoires précédentes">&lsaquo;</button>
     <div class="carousel-track" aria-label="Carrousel des histoires">
@@ -64,6 +68,7 @@ permalink: /catalogue/
     </div>
     <button class="carousel-btn carousel-btn--next" type="button" aria-label="Histoires suivantes">&rsaquo;</button>
   </div>
+  {% endcomment %}
 </section>
 
 </div>
