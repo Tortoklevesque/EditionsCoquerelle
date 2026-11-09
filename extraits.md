@@ -1,6 +1,8 @@
 ---
 layout: default
+schema_tortok: true
 title: Extraits gratuits
+description: "Extrait gratuit de Tortok, roman de Simon Lévesque : un dude de Laval piégé dans un cauchemar éveillé aux allures de jeu vidéo."
 permalink: /extraits/
 ---
 

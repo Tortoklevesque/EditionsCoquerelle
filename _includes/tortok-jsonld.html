@@ -1,0 +1,20 @@
+{%- assign t = site.data.tortok -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": {{ t.titre | jsonify }},
+  "author": { "@type": "Person", "name": {{ t.auteur | jsonify }} },
+  "publisher": { "@type": "Organization", "name": {{ t.editeur | jsonify }} },
+  "inLanguage": {{ t.langue | jsonify }},
+  "isbn": {{ t.isbn | jsonify }},
+  "image": {{ '/images/cover_tortok.jpg' | absolute_url | jsonify }},
+  "description": {{ t.resume | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "offers": {
+    "@type": "Offer",
+    "url": {{ site.lien_amazon_tortok | jsonify }},
+    "seller": { "@type": "Organization", "name": "Amazon.ca" }
+  }
+}
+</script>

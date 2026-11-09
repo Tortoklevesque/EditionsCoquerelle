@@ -1,6 +1,8 @@
 ---
 layout: default
+schema_tortok: true
 title: Catalogue
+description: "Les livres et histoires des Éditions Coquerelle, dont Tortok, roman de Simon Lévesque."
 permalink: /catalogue/
 ---
 

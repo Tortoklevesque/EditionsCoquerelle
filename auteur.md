@@ -8,8 +8,8 @@ permalink: /auteur/
 
 # Auteur
 
-<div class="portrait-placeholder" role="img" aria-label="Portrait de Simon Lévesques (image à venir)">
-  <span>Simon Lévesques<br>Photo à venir</span>
+<div class="portrait-placeholder" role="img" aria-label="Portrait de Simon Lévesque (image à venir)">
+  <span>Simon Lévesque<br>Photo à venir</span>
 </div>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
