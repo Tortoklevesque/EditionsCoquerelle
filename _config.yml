@@ -26,6 +26,7 @@ exclude:
   - CLAUDE.md
   - SITEMAP.md
   - informations-a-completer.md
+  - INSTRUCTIONS-DNS-SIMON.md
   - _livres/GABARIT.md
   - _histoires/GABARIT.md
   - _extraits/GABARIT.md

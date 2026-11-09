@@ -14,7 +14,7 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 - **GitHub Pages**, gratuit, supporte le domaine `.ca` personnalisé + HTTPS automatique. Pas besoin de Netlify/Cloudflare pour l'instant.
 - Le repo GitHub appartient à **Simon** (compte `Tortoklevesque`), pas au compte du développeur, pour des raisons de propriété (site + transactions = son entreprise). Repo : `github.com/Tortoklevesque/EditionsCoquerelle`. Le développeur (compte GitHub `jy-cote`) y a accès en écriture (pas admin — ne peut pas activer Pages lui-même).
 - `gh` (GitHub CLI) installé localement (version portable, sans droits admin, dans `%LOCALAPPDATA%\GitHubCLI`) et authentifié sous `jy-cote` — Claude Code peut pousser directement une fois confirmation donnée pour chaque push.
-- **Repo public** et **GitHub Pages actif** (vérifié 2026-11-09) : source branche `main`, `/ (root)`, HTTPS forcé. Site en ligne à `https://tortoklevesque.github.io/EditionsCoquerelle/` (chaque `push` sur `main` republie le site). Domaine personnalisé pas encore configuré (pas de fichier `CNAME`).
+- **Repo public** et **GitHub Pages actif** (vérifié 2026-11-09) : source branche `main`, `/ (root)`, HTTPS forcé. Site en ligne à `https://tortoklevesque.github.io/EditionsCoquerelle/` (chaque `push` sur `main` republie le site). Domaine personnalisé pas encore configuré (pas de fichier `CNAME`) : instructions détaillées pour Simon dans **`INSTRUCTIONS-DNS-SIMON.md`** (exclu du build).
 - Simon modifie parfois le repo directement sur GitHub (téléversements, édition de `informations-a-completer.md`) : toujours faire `git fetch` / `git pull --ff-only` avant de travailler.
 
 ## Structure de contenu prévue — Jekyll
@@ -48,7 +48,12 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
   - Un **menu traditionnel** sera aussi présent en parallèle (navigation standard, en plus du bonhomme).
 - **Carousel** : faisable en CSS natif (`scroll-snap`) ou petite librairie JS. Peut se brancher sur le champ `vedette: true` des fichiers de livres pour alimenter automatiquement le carousel de la page d'accueil.
 - **Page Extraits gratuits** (`extraits.md`) : couverture de Tortok + résumé (tiré de `_data/tortok.yml`, même texte que les métadonnées JSON-LD), puis un encadré avec un extrait. Les extraits sont dans la collection `_extraits/` (un fichier par extrait, `output: false`, gabarit `_extraits/GABARIT.md`) ; tous sont inclus dans la page, cachés sauf un, et le bouton « Générer un nouvel extrait aléatoire » en affiche un autre au hasard (`initExtraitAleatoire` dans `assets/js/main.js`). Sans JavaScript, le premier extrait reste visible et le bouton est masqué. L'ancienne page stub `extrait-aleatoire.md` a été supprimée.
-- **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`site.lien_amazon_tortok`, nouvel onglet). Les autres cartes du catalogue (tomes à venir, histoires) restent sans lien (`#`).
+- **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`site.lien_amazon_tortok`, nouvel onglet).
+- **Catalogue** (`catalogue.md`, cartes écrites à la main pour l'instant, pas encore générées depuis `_livres/`) : carte Tortok (couverture `images/cover_tortok.jpg`, lien Amazon) ; cartes « Tome 2 (à venir) » et « Tome 3 (à venir) » sans lien (`<div>`, pas `<a>`). Section Histoires : « À venir » ; le carrousel des histoires est conservé dans un bloc `{% comment %}` Liquid, à réactiver quand les histoires arriveront.
+- **Encadré « Nouvelles »** sur l'accueil (sous la phrase de Bourtouk) : carte « Maintenant disponible » avec la couverture, le titre, l'auteur et « Acheter sur Amazon » ; toute la carte est un lien vers Amazon. Approuvé tel quel par l'utilisateur.
+- **Footer** : « Éditions Coquerelle » est un lien vers la page Éditeur.
+- **Fond du site blanc** (`--color-bg: #ffffff`, était crème `#fdf8f0`) pour que l'image de Bourtouk (fond blanc) se fonde dans la page. La version sans fond `images/brtksansfond.png` existe si on revient à un fond coloré.
+- **Pièges connus** : le Markdown à l'intérieur d'un `<div>` n'est interprété par kramdown qu'avec `markdown="1"` (sinon `# Titre` s'affiche tel quel) ; `extraits.md` est écrit en HTML pur à la place.
 
 ## Configuration technique — domaine, DNS, SEO
 - **Domaine personnalisé (pas une redirection)** : GitHub Pages sert le site directement sous `editionscoquerelle.ca` (le visiteur ne voit jamais l'URL `github.io`). Nécessite :
@@ -59,21 +64,28 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **Indexation Google** : pas automatique/garantie rapidement pour un domaine neuf. À faire :
   - Fait (2026-11-09) : `sitemap.xml` généré par `jekyll-sitemap` (déclaré dans `plugins` de `_config.yml`) et `robots.txt` (pointe vers le sitemap via `absolute_url`, suit donc le domaine). Métadonnées JSON-LD `Book` pour Tortok (`_data/tortok.yml`, `_includes/tortok-jsonld.html`). `robots.txt` n'est lu par les robots qu'à la racine d'un domaine : effectif seulement une fois `editionscoquerelle.ca` branché.
   - À faire : propriété Google Search Console (compte Google de Simon, idéalement après le branchement du domaine `.ca`), validation par enregistrement TXT chez WHC, soumission du sitemap, demande d'indexation de l'accueil.
+  - Fait (2026-11-09) : balises de partage via `jekyll-seo-tag` (`{% seo title=false %}` dans le layout ; Open Graph, Twitter Cards, URL canonique, meta description). `locale: fr_CA` ; image par défaut Bourtouk (`defaults` dans `_config.yml`), couverture de Tortok sur Catalogue et Extraits (`image:` dans le front matter). Accueil : titre « Éditions Coquerelle », description du site « Maison d'édition de Tortok (Simon Lévesque). » (choisie par l'utilisateur ; sert aussi par défaut aux pages sans description).
   - Titres et descriptions uniques par page/livre (via le front matter Jekyll).
-- **Push automatisé par Claude Code** : possible une fois le repo cloné localement et l'authentification GitHub configurée (`gh auth login`, clé SSH, ou token). Par défaut, confirmation demandée à chaque push (action affectant un dépôt partagé) sauf indication contraire du développeur.
+- **Vérifier un déploiement** : passer par les runs GitHub Actions (`gh run list` / `gh run watch`), pas par l'API `pages/builds` qui affiche de faux « errored ». Cache CDN d'environ 10 min (Ctrl+Shift+R). Pas de Ruby/Jekyll sur le poste : on pousse et on vérifie en ligne.
+- **Push automatisé par Claude Code** : possible une fois le repo cloné localement et l'authentification GitHub configurée (`gh auth login`, clé SSH, ou token). Depuis le 2026-11-09, le développeur a demandé de **pousser à chaque modification** (pas de prévisualisation locale possible), puis de vérifier le résultat en ligne dans Chrome. Toujours `git pull --ff-only` avant, et ne committer que les fichiers voulus (vérifier `git status` : Simon ou le développeur peuvent déposer des fichiers entre-temps).
 
 ## En attente de Simon
-- Images, icônes du site.
-- Description détaillée du site (contenu, sections, ton, structure souhaitée).
-- Liste complète dans `informations-a-completer.md`.
+- Texte de la page **Éditeur** (actuellement lorem ipsum).
+- **Photo** et **texte** de la page **Auteur** (le titre « Simon Lévesque » est en place au-dessus du lorem ipsum).
+- Configuration DNS chez WHC + domaine personnalisé dans Settings → Pages : voir `INSTRUCTIONS-DNS-SIMON.md`.
+- Confirmer que `info@editionscoquerelle.ca` (affiché sur la page Éditeur) arrive bien (redirection de courriel WHC).
+- Autres images (annoncées pour le 2026-11-09 en fin de journée) et liste complète dans `informations-a-completer.md`.
 
 ## Plan du site
 Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 
 ## État d'avancement
-- Fait : branche `main` créée et poussée sur le repo distant. Structure Jekyll de base en place (commit `38b864e`) : `_config.yml`, layout `default.html`, gabarits `_livres/`/`_histoires/` (exclus du build), pages `index`, `catalogue`, `auteur`, `editeur`, `extraits`.
+- Structure Jekyll de base en place (commit `38b864e`) : `_config.yml`, layout `default.html`, gabarits `_livres/`/`_histoires/`/`_extraits/` (exclus du build), pages `index`, `catalogue`, `auteur`, `editeur`, `extraits`.
+- Session du 2026-11-09 (site de base, publication rapide) : synchronisation avec les modifications de Simon ; Square remplacé par le lien Amazon ; titre du livre corrigé en « Tortok » ; couverture intégrée ; résumé et extraits aléatoires sur la page Extraits ; encadré Nouvelles sur l'accueil ; fond blanc ; lien footer → Éditeur ; correction du Markdown non interprété dans les pages ; métadonnées JSON-LD, sitemap, robots.txt et balises de partage ; nom de domaine et cible DNS corrigés dans ce fichier ; instructions DNS rédigées pour Simon.
+- **Le site est publiable dès que les textes Éditeur et Auteur (et la photo de l'auteur) sont fournis**, puis le domaine branché.
 
 ## Étapes suivantes
-- Déclarer les collections `livres` et `histoires` dans `_config.yml` et créer le layout catalogue/fiche qui boucle dessus.
-- Réception des images de Simon (annoncées pour le 2026-11-09 en fin de journée) et intégration rapide pour publication.
-- Domaine `.ca` : fichier `CNAME` + DNS chez le registraire (voir plus bas).
+1. Intégrer les textes Éditeur/Auteur et la photo de l'auteur dès réception.
+2. Transmettre `INSTRUCTIONS-DNS-SIMON.md` à Simon ; après le branchement, `git pull` pour récupérer le fichier `CNAME` créé par GitHub, et vérifier le site sous `editionscoquerelle.ca`.
+3. Google Search Console (après le domaine).
+4. Plus tard : générer le catalogue depuis les collections `_livres/`/`_histoires/` (déclarer les collections, layout fiche), réactiver le carrousel des histoires.

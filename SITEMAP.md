@@ -22,13 +22,13 @@ graph TD
     A -. bonhomme cliquable .-> E
 ```
 
-- **Accueil** — image de Bourtouk en grand, bonhomme cliquable (zones : main → catalogue, ventre → extraits gratuits, fesses → boutique Amazon), carousel des items `vedette: true`, menu traditionnel en parallèle du bonhomme.
+- **Accueil** — image de Bourtouk en grand, bonhomme cliquable (zones : main → catalogue, ventre → extraits gratuits, fesses → boutique Amazon), encadré « Nouvelles » (Tortok « Maintenant disponible », lien Amazon), menu traditionnel en parallèle du bonhomme. Carousel des items `vedette: true` : prévu plus tard.
 - **Éditeur** — page de présentation de l'éditeur (la maison d'édition).
 - **Auteur** — page de présentation de l'auteur (un seul auteur pour l'instant : Simon).
 - **Catalogue** — section en deux parties (renommée depuis « Boutique » pour éviter la confusion avec la boutique Amazon) :
   - **Livres** — généré depuis la collection `_livres/`, une page par livre (front matter → template Jekyll). Contenu actuel : 1 livre publié (tome 1), tome 2 en écriture — prévu comme une trilogie.
   - **Histoires** — généré depuis la collection `_histoires/`, une page par histoire.
-- **Extraits gratuits** — accès aux extraits (champ `extrait` du front matter, quand rempli).
+- **Extraits gratuits** — couverture et résumé de Tortok, encadré avec un extrait tiré au hasard dans la collection `_extraits/` (bouton « Générer un nouvel extrait aléatoire »).
 - **Boutique Amazon** — lien externe (champ `lien_amazon` du front matter), pas une page du site.
 
 ## Pages à confirmer avec Simon
