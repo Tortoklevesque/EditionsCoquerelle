@@ -16,8 +16,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-<!-- TODO: remplacer par le lien direct du produit Square une fois la fiche créée par Simon -->
-<p class="extract-source">Extrait de : <a href="#">TORTOK : le barbare</a></p>
+<p class="extract-source">Extrait de : <a href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">TORTOK : le barbare</a> (en vente sur Amazon)</p>
 
 <a class="button" href="{{ '/extrait-aleatoire/' | relative_url }}">Générer un nouvel extrait aléatoire</a>
 

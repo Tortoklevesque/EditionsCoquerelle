@@ -31,10 +31,10 @@
 ## Technique
 - Nom de domaine `.ca` exact (confirmer l'orthographe précise)
 - Registraire où le domaine a été acheté (ex. : Namecheap, GoDaddy, Sav.ca...) et accès pour pointer le DNS vers GitHub Pages — ou tu peux t'en charger toi-même avec des instructions
-- Ton compte Square : catalogue de produits déjà entré, ou à faire ensemble
+- Lien exact de la fiche Amazon de Tortok (vente via Amazon ; Square abandonné pour l'instant)
 - Une adresse courriel de contact à afficher sur le site
 
 ## Légal / autres
 - Langue du site : français seulement, ou bilingue français/anglais ?
-- Mentions légales à afficher (raison sociale, année, politique de retour/remboursement pour les ventes Square, politique de confidentialité si besoin)
+- Mentions légales à afficher (raison sociale, année, politique de confidentialité si besoin)
 - Numéro ISBN par livre, si applicable

@@ -16,8 +16,7 @@ title: Accueil
        style="top: 42%; left: 25%; width: 40%; height: 22%;"
        aria-label="Extraits gratuits" data-label="Extraits gratuits"></a>
 
-    <!-- TODO: remplacer par le lien réel de la boutique Amazon une fois fourni par Simon -->
-    <a class="bonhomme-zone bonhomme-zone--fesses" href="https://www.amazon.ca"
+    <a class="bonhomme-zone bonhomme-zone--fesses" href="{{ site.lien_amazon_tortok }}"
        style="top: 62%; left: 18%; width: 60%; height: 24%;"
        aria-label="Boutique Amazon" data-label="Boutique Amazon" target="_blank" rel="noopener"></a>
   </div>

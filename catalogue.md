@@ -13,10 +13,9 @@ permalink: /catalogue/
   <div class="carousel">
     <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Livres précédents">&lsaquo;</button>
     <div class="carousel-track" aria-label="Carrousel des livres">
-      <!-- TODO: remplacer chaque lien "#" par la fiche produit Square une fois créée par Simon -->
-      <a class="carousel-card" href="#">
+      <a class="carousel-card" href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
-        <p class="card-title">TORTOK : le barbare</p>
+        <p class="card-title">TORTOK : le barbare <span class="visually-hidden">(acheter sur Amazon, nouvel onglet)</span></p>
       </a>
       <a class="carousel-card" href="#">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
@@ -36,7 +35,6 @@ permalink: /catalogue/
   <div class="carousel">
     <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Histoires précédentes">&lsaquo;</button>
     <div class="carousel-track" aria-label="Carrousel des histoires">
-      <!-- TODO: remplacer chaque lien "#" par la fiche produit Square une fois créée par Simon -->
       <a class="carousel-card" href="#">
         <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
         <p class="card-title">La bébite</p>

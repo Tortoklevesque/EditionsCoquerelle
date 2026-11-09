@@ -36,7 +36,7 @@ graph TD
 Liste du menu traditionnel pas encore arrêtée pour le reste — voir la section « Navigation / structure du site » dans `informations-a-completer.md`. Candidates possibles, à valider :
 
 - Contact
-- Mentions légales (raison sociale, politique de retour/remboursement Square, confidentialité — voir `informations-a-completer.md`)
+- Mentions légales (raison sociale, confidentialité — voir `informations-a-completer.md`)
 
 ## Notes
 
