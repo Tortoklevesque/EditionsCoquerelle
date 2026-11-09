@@ -47,7 +47,7 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
     - fesses → boutique Amazon
   - Un **menu traditionnel** sera aussi présent en parallèle (navigation standard, en plus du bonhomme).
 - **Carousel** : faisable en CSS natif (`scroll-snap`) ou petite librairie JS. Peut se brancher sur le champ `vedette: true` des fichiers de livres pour alimenter automatiquement le carousel de la page d'accueil.
-- **Extrait aléatoire (à développer)** : page Extraits gratuits (`extraits.md`) avec un bouton « Générer un nouvel extrait aléatoire ». Prévu à terme : une collection Jekyll (type `_extraits/`, même principe que `_livres/`/`_histoires/`) avec un fichier par extrait ; le bouton pigerait un extrait au hasard dans cette collection. Pas encore implémenté — le bouton pointe pour l'instant vers une page stub (`extrait-aleatoire.md`, contenu : « Fonctionnalité extrait à développer »).
+- **Page Extraits gratuits** (`extraits.md`) : couverture de Tortok + résumé (tiré de `_data/tortok.yml`, même texte que les métadonnées JSON-LD), puis un encadré avec un extrait. Les extraits sont dans la collection `_extraits/` (un fichier par extrait, `output: false`, gabarit `_extraits/GABARIT.md`) ; tous sont inclus dans la page, cachés sauf un, et le bouton « Générer un nouvel extrait aléatoire » en affiche un autre au hasard (`initExtraitAleatoire` dans `assets/js/main.js`). Sans JavaScript, le premier extrait reste visible et le bouton est masqué. L'ancienne page stub `extrait-aleatoire.md` a été supprimée.
 - **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`site.lien_amazon_tortok`, nouvel onglet). Les autres cartes du catalogue (tomes à venir, histoires) restent sans lien (`#`).
 
 ## Configuration technique — domaine, DNS, SEO
@@ -71,7 +71,7 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 
 ## État d'avancement
-- Fait : branche `main` créée et poussée sur le repo distant. Structure Jekyll de base en place (commit `38b864e`) : `_config.yml`, layout `default.html`, gabarits `_livres/`/`_histoires/` (exclus du build), pages `index`, `catalogue`, `auteur`, `editeur`, `extraits`, `extrait-aleatoire`.
+- Fait : branche `main` créée et poussée sur le repo distant. Structure Jekyll de base en place (commit `38b864e`) : `_config.yml`, layout `default.html`, gabarits `_livres/`/`_histoires/` (exclus du build), pages `index`, `catalogue`, `auteur`, `editeur`, `extraits`.
 
 ## Étapes suivantes
 - Déclarer les collections `livres` et `histoires` dans `_config.yml` et créer le layout catalogue/fiche qui boucle dessus.

@@ -6,9 +6,14 @@ lang: fr
 # Lien de vente Amazon du livre Tortok (fiche produit, adresse directe).
 lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
 
+collections:
+  extraits:
+    output: false   # pas de page par extrait : ils sont affichés dans la page Extraits gratuits
+
 exclude:
   - CLAUDE.md
   - SITEMAP.md
   - informations-a-completer.md
   - _livres/GABARIT.md
   - _histoires/GABARIT.md
+  - _extraits/GABARIT.md

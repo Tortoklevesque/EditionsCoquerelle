@@ -62,7 +62,34 @@ function initCarousels() {
   });
 }
 
+// Page Extraits gratuits : tous les extraits sont dans la page (cachés sauf un) ;
+// le bouton en affiche un autre au hasard. Sans JavaScript, le premier reste visible.
+function initExtraitAleatoire() {
+  const button = document.getElementById("extrait-aleatoire");
+  const extraits = Array.from(document.querySelectorAll(".extrait"));
+  if (!button || extraits.length === 0) return;
+
+  let courant = -1;
+  const afficher = (index) => {
+    extraits.forEach((el, i) => { el.hidden = i !== index; });
+    courant = index;
+  };
+  const piger = () => {
+    if (extraits.length === 1) return 0;
+    let index;
+    do { index = Math.floor(Math.random() * extraits.length); } while (index === courant);
+    return index;
+  };
+
+  afficher(piger());
+  if (extraits.length > 1) {
+    button.hidden = false;
+    button.addEventListener("click", () => afficher(piger()));
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initHamburger();
   initCarousels();
+  initExtraitAleatoire();
 });

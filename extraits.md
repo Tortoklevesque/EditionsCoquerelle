@@ -6,18 +6,31 @@ description: "Extrait gratuit de Tortok, roman de Simon Lévesque : un dude de L
 permalink: /extraits/
 ---
 
-<div class="page-content" markdown="1">
+<div class="page-content">
 
-# Extraits gratuits
+<h1>Extraits gratuits</h1>
 
 <img class="cover-image" src="{{ '/images/cover_tortok.jpg' | relative_url }}" alt="Couverture du livre Tortok de Simon Lévesque">
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<div class="resume">
+{%- assign paragraphes = site.data.tortok.resume | split: "
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+" -%}
+{%- for para in paragraphes %}
+  <p>{{ para | strip | newline_to_br }}</p>
+{%- endfor %}
+</div>
 
 <p class="extract-source">Extrait de : <a href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">Tortok</a> (en vente sur Amazon)</p>
 
-<a class="button" href="{{ '/extrait-aleatoire/' | relative_url }}">Générer un nouvel extrait aléatoire</a>
+<div class="extrait-box" aria-live="polite">
+  {%- for extrait in site.extraits %}
+  <blockquote class="extrait"{% unless forloop.first %} hidden{% endunless %}>
+    {{ extrait.content | markdownify }}
+  </blockquote>
+  {%- endfor %}
+</div>
+
+<button class="button" type="button" id="extrait-aleatoire" hidden>Générer un nouvel extrait aléatoire</button>
 
 </div>
