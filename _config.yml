@@ -3,9 +3,8 @@ description: >-
   Maison d'édition — livres et histoires.
 lang: fr
 
-# Lien de vente Amazon du livre Tortok (provisoire : recherche Amazon.ca sur le titre).
-# Remplacer par l'URL exacte de la fiche Amazon dès que Simon la fournit.
-lien_amazon_tortok: "https://www.amazon.ca/s?k=Tortok+le+barbare"
+# Lien de vente Amazon du livre Tortok (fiche produit, lien court fourni par Simon).
+lien_amazon_tortok: "https://a.co/d/04kA2veY"
 
 exclude:
   - CLAUDE.md

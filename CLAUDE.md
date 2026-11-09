@@ -5,7 +5,7 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 
 - Nom de domaine `.ca` : déjà acheté par Simon.
 - **Changement de plan (2026-11-09)** : Simon veut d'abord un **site de base** mis en ligne rapidement, pour avoir une présence web avant de démarcher les librairies. Les fonctionnalités avancées passent après.
-- Vente : **lien vers Amazon** pour le livre *Tortok : le barbare* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur provisoire : recherche Amazon.ca sur le titre, à remplacer par l'URL exacte de la fiche. **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
+- Vente : **lien vers Amazon** pour le livre *Tortok : le barbare* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur : `https://a.co/d/04kA2veY` (lien court Amazon fourni le 2026-11-09). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
 - Design : site adaptatif (responsive), rendu identique en mobile et grand écran.
 - Site simple : image de **Bourtouk** affichée en grand (page d'accueil), palette de couleurs du site basée sur les couleurs de cette image. Fichier reçu : `images/bourtouk-couleur.png`.
 - Accessibilité : respect des règles de base (contraste suffisant, texte alternatif sur les images, navigation au clavier, HTML sémantique). Le menu traditionnel (en parallèle du « bonhomme » cliquable, voir plus bas) sert notamment d'équivalent accessible à la navigation par image.
@@ -76,5 +76,4 @@ Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 ## Étapes suivantes
 - Déclarer les collections `livres` et `histoires` dans `_config.yml` et créer le layout catalogue/fiche qui boucle dessus.
 - Réception des images de Simon (annoncées pour le 2026-11-09 en fin de journée) et intégration rapide pour publication.
-- Obtenir l'URL exacte de la fiche Amazon de Tortok.
 - Domaine `.ca` : fichier `CNAME` + DNS chez le registraire (voir plus bas).

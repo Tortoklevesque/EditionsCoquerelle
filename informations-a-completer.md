@@ -31,7 +31,7 @@
 ## Technique
 - Nom de domaine `.ca` exact (confirmer l'orthographe précise)
 - Registraire où le domaine a été acheté (ex. : Namecheap, GoDaddy, Sav.ca...) et accès pour pointer le DNS vers GitHub Pages — ou tu peux t'en charger toi-même avec des instructions
-- Lien exact de la fiche Amazon de Tortok (vente via Amazon ; Square abandonné pour l'instant)
+- ~~Lien de la fiche Amazon de Tortok~~ → réglé : https://a.co/d/04kA2veY
 - Une adresse courriel de contact à afficher sur le site
 
 ## Légal / autres
