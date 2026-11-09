@@ -6,6 +6,9 @@ lang: fr
 # Lien de vente Amazon du livre Tortok (fiche produit, adresse directe).
 lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
 
+plugins:
+  - jekyll-sitemap   # génère /sitemap.xml (plugin supporté nativement par GitHub Pages)
+
 collections:
   extraits:
     output: false   # pas de page par extrait : ils sont affichés dans la page Extraits gratuits
