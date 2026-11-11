@@ -10,12 +10,11 @@ schema_tortok: true
 {%- comment -%}
   Version Web de fichiers/fiche-libraire-tortok.pdf (même contenu, même look).
   Mise en page : assets/css/fiche.css (grille sur grand écran, une colonne sur cellulaire,
-  feuille d'une page à l'impression).
+  feuille d'une page si on imprime depuis le navigateur).
 {%- endcomment -%}
 
 <div class="fiche-outils">
   <a class="button" href="{{ '/fichiers/fiche-libraire-tortok.pdf' | relative_url }}" download>Télécharger la fiche (PDF, 2,3 Mo)</a>
-  <button class="button fiche-imprimer" type="button" onclick="window.print()">Imprimer</button>
 </div>
 
 <article class="fiche" aria-labelledby="fiche-titre">
@@ -91,7 +90,6 @@ schema_tortok: true
   <footer class="fiche-pied">
     <a href="{{ '/' | relative_url }}">editionscoquerelle.ca</a>
     <img src="{{ '/images/logo-coquerelle.png' | relative_url }}" alt="" class="fiche-logo">
-    <a href="tel:+15148395549">Tél. (514) 839-5549</a>
   </footer>
 
 </article>
