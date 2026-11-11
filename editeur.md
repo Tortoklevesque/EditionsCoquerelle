@@ -11,10 +11,10 @@ permalink: /editeur/
 Les Éditions Coquerelle. Des publications de mauvais goût pour le monde qui n'aime pas lire.
 
 <div class="page-footer-info">
-  <a href="mailto:info@editionscoquerelle.ca" aria-label="Écrire à info@editionscoquerelle.ca">
+  <a href="mailto:editionscoquerelle@gmail.com" aria-label="Écrire à editionscoquerelle@gmail.com">
     <img class="page-footer-logo" src="{{ '/images/logo-coquerelle.png' | relative_url }}" alt="">
   </a>
-  <a href="mailto:info@editionscoquerelle.ca">info@editionscoquerelle.ca</a>
+  <a href="mailto:editionscoquerelle@gmail.com">editionscoquerelle@gmail.com</a>
 </div>
 
 </div>

@@ -73,8 +73,10 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 
 ## En attente de Simon
 - Configuration DNS chez WHC + domaine personnalisé dans Settings → Pages : voir `INSTRUCTIONS-DNS-SIMON.md`.
-- Confirmer que `info@editionscoquerelle.ca` (affiché sur la page Éditeur) arrive bien (redirection de courriel WHC).
 - Autres images (annoncées pour le 2026-11-09 en fin de journée) et liste complète dans `informations-a-completer.md`.
+
+## Courriel de contact
+- Adresse affichée sur le site (page Éditeur seulement) : `editionscoquerelle@gmail.com` (choisie par Simon le 2026-11-10, remplace `info@editionscoquerelle.ca`). La redirection de courriel WHC reste active, mais l'adresse `info@` n'apparaît plus sur le site.
 
 ## Ton et ambiance
 - **Ambiance voulue : label death metal**, humour noir assumé (décidé avec Simon le 2026-11-10). Textes courts et provocateurs (Éditeur : « Des publications de mauvais goût pour le monde qui n'aime pas lire. » ; Auteur : « Bureaucrate de jour. Psychopathe de nuit. »). La photo de l'auteur est volontairement à l'horizontale : ne pas la « corriger ».
