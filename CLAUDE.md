@@ -3,7 +3,7 @@
 ## Contexte
 Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histoires et livres et les vendre en ligne.
 
-- Nom de domaine : `editionscoquerelle.ca`, acheté par Simon chez WHC (Web Hosting Canada) ; vérifié le 2026-11-09 : domaine stationné (DNS parking1/parking2.whc.ca) avec redirection de courriel active (MX `emailfwd.editionscoquerelle.ca`).
+- Nom de domaine : `editionscoquerelle.ca`, acheté par Simon chez WHC (Web Hosting Canada), renouvellement automatique actif (échéance 2027-08-30). Serveurs de noms WHC (`parking1/parking2.whc.ca`) conservés ; la zone se modifie dans l'espace client WHC (engrenage du domaine → « Éditeur de zone DNS »). **Site en ligne sur `https://editionscoquerelle.ca` depuis le 2026-11-10.**
 - **Changement de plan (2026-11-09)** : Simon veut d'abord un **site de base** mis en ligne rapidement, pour avoir une présence web avant de démarcher les librairies. Les fonctionnalités avancées passent après.
 - Vente : **lien vers Amazon** pour le livre *Tortok* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur : `https://www.amazon.ca/dp/2982553309` (adresse directe de la fiche, ISBN/ASIN 2982553309). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
 - Design : site adaptatif (responsive), rendu identique en mobile et grand écran.
@@ -14,7 +14,7 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 - **GitHub Pages**, gratuit, supporte le domaine `.ca` personnalisé + HTTPS automatique. Pas besoin de Netlify/Cloudflare pour l'instant.
 - Le repo GitHub appartient à **Simon** (compte `Tortoklevesque`), pas au compte du développeur, pour des raisons de propriété (site + transactions = son entreprise). Repo : `github.com/Tortoklevesque/EditionsCoquerelle`. Le développeur (compte GitHub `jy-cote`) y a accès en écriture (pas admin — ne peut pas activer Pages lui-même).
 - `gh` (GitHub CLI) installé localement (version portable, sans droits admin, dans `%LOCALAPPDATA%\GitHubCLI`) et authentifié sous `jy-cote` — Claude Code peut pousser directement une fois confirmation donnée pour chaque push.
-- **Repo public** et **GitHub Pages actif** (vérifié 2026-11-09) : source branche `main`, `/ (root)`, HTTPS forcé. Site en ligne à `https://tortoklevesque.github.io/EditionsCoquerelle/` (chaque `push` sur `main` republie le site). **Domaine `editionscoquerelle.ca` branché le 2026-11-10** : zone DNS WHC modifiée (4 A `@` vers 185.199.108-111.153, CNAME `www` → `tortoklevesque.github.io.` ; A `emailfwd`, MX, TXT SPF conservés ; ancienne valeur A `@` : 149.56.225.6), domaine déclaré par Simon dans Settings → Pages, fichier `CNAME` dans le dépôt, `url`/`baseurl` fixés dans `_config.yml`. L'ancienne adresse `github.io` redirige vers le domaine. **HTTPS forcé** (Enforce HTTPS coché par Simon le 2026-11-10 ; certificat Let's Encrypt pour le domaine nu et `www`, renouvelé automatiquement par GitHub). Le compte `jy-cote` n'a pas accès à Settings (404) : toute modification de Pages passe par Simon. Redirection de courriel WHC : 0/3 configurée (`info@` n'a jamais reçu de courriel).
+- **Repo public** et **GitHub Pages actif** (vérifié 2026-11-09) : source branche `main`, `/ (root)`, HTTPS forcé. Chaque `push` sur `main` republie le site (adresse d'origine `tortoklevesque.github.io/EditionsCoquerelle/`, redirigée vers le domaine). **Domaine `editionscoquerelle.ca` branché le 2026-11-10** : zone DNS WHC modifiée (4 A `@` vers 185.199.108-111.153, CNAME `www` → `tortoklevesque.github.io.` ; A `emailfwd`, MX, TXT SPF conservés ; ancienne valeur A `@` : 149.56.225.6), domaine déclaré par Simon dans Settings → Pages, fichier `CNAME` dans le dépôt, `url`/`baseurl` fixés dans `_config.yml`. L'ancienne adresse `github.io` redirige vers le domaine. **HTTPS forcé** (Enforce HTTPS coché par Simon le 2026-11-10 ; certificat Let's Encrypt pour le domaine nu et `www`, renouvelé automatiquement par GitHub). Le compte `jy-cote` n'a pas accès à Settings (404) : toute modification de Pages passe par Simon. Redirection de courriel WHC : 0/3 configurée (`info@` n'a jamais reçu de courriel).
 - Simon modifie parfois le repo directement sur GitHub (téléversements, édition de `informations-a-completer.md`) : toujours faire `git fetch` / `git pull --ff-only` avant de travailler.
 
 ## Structure de contenu prévue — Jekyll
@@ -74,7 +74,17 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **Push automatisé par Claude Code** : possible une fois le repo cloné localement et l'authentification GitHub configurée (`gh auth login`, clé SSH, ou token). Depuis le 2026-11-09, le développeur a demandé de **pousser à chaque modification** (pas de prévisualisation locale possible), puis de vérifier le résultat en ligne dans Chrome. Toujours `git pull --ff-only` avant, et ne committer que les fichiers voulus (vérifier `git status` : Simon ou le développeur peuvent déposer des fichiers entre-temps).
 
 ## En attente de Simon
-- Autres images (annoncées pour le 2026-11-09 en fin de journée) et liste complète dans `informations-a-completer.md`.
+- Autres images éventuelles (annoncées le 2026-11-09) ; reste de `informations-a-completer.md` (langue, mentions légales, etc.), rien de bloquant.
+- Facultatif : donner un nom d'utilisateur à la page Facebook (adresse actuelle `profile.php?id=…`), puis mettre à jour `facebook_url` et `social.links` dans `_config.yml`.
+- Si Simon modifie la fiche libraire (PDF), mettre aussi à jour `libraires.md`.
+- Trancher l'ordre du résumé (« ses dettes et son côlon » sur la fiche vs « son côlon et ses dettes » dans `_data/tortok.yml`).
+
+## Outils et pièges rencontrés (2026-11-10)
+- **Chrome du développeur** : comptes Google connectés `/u/0/` (développeur), `/u/1/` (autre compte personnel), `/u/2/` = `editionscoquerelle@gmail.com` (compte de l'entreprise, utilisé pour Search Console).
+- **Éditeur de zone WHC** : bloqué (« Tool unavailable on mobile devices », mode texte en lecture seule) si la page fait moins d'environ 1100 px de large ; le panneau latéral de Claude dans Chrome suffit à le déclencher → fermer le panneau ou élargir la fenêtre. Les modifications restent en brouillon jusqu'à « Publier les modifications ». L'extension Claude doit avoir la permission sur `clients.whc.ca`.
+- **Connexion Google de Simon** : le code `g.co/sc` doit être ouvert sur un appareil où il est déjà connecté (son cellulaire), sinon boucle de connexion.
+- **Pages / domaine** : un fichier `CNAME` poussé par `jy-cote` ne suffit pas à déclarer le domaine ; il faut Settings → Pages avec le compte de Simon. Juste après, « Enforce HTTPS » peut rester grisé quelques minutes alors que le certificat est déjà approuvé.
+- Saisie du `@` sur clavier canadien-français : AltGr + 2.
 
 ## Courriel de contact
 - Adresse affichée sur le site (page Éditeur seulement) : `editionscoquerelle@gmail.com` (choisie par Simon le 2026-11-10, remplace `info@editionscoquerelle.ca`). La redirection de courriel WHC reste active, mais l'adresse `info@` n'apparaît plus sur le site.
@@ -90,9 +100,9 @@ Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 ## État d'avancement
 - Structure Jekyll de base en place (commit `38b864e`) : `_config.yml`, layout `default.html`, gabarits `_livres/`/`_histoires/`/`_extraits/` (exclus du build), pages `index`, `catalogue`, `auteur`, `editeur`, `extraits`.
 - Session du 2026-11-09 (site de base, publication rapide) : synchronisation avec les modifications de Simon ; Square remplacé par le lien Amazon ; titre du livre corrigé en « Tortok » ; couverture intégrée ; résumé et extraits aléatoires sur la page Extraits ; encadré Nouvelles sur l'accueil ; fond blanc ; lien footer → Éditeur ; correction du Markdown non interprété dans les pages ; métadonnées JSON-LD, sitemap, robots.txt et balises de partage ; nom de domaine et cible DNS corrigés dans ce fichier ; instructions DNS rédigées pour Simon.
-- Session du 2026-11-10 (avec Simon) : textes Éditeur et Auteur et photo de l'auteur intégrés. Simon veut finir le site avant de brancher le domaine.
+- Session du 2026-11-10 (avec Simon) : textes Éditeur et Auteur et photo de l'auteur ; favicon ; liens Facebook/Instagram ; courriel de contact `editionscoquerelle@gmail.com` ; cache CSS/JS ; ambiance death metal (adoptée) ; page Libraires (version Web de la fiche PDF) et pieds de Bourtouk → Libraires ; correction du cadrage de Bourtouk détouré ; DNS chez WHC, domaine personnalisé, HTTPS forcé ; Google Search Console (propriété validée, sitemap soumis, indexation de l'accueil demandée). **Site terminé et en ligne.**
 
 ## Étapes suivantes
-1. Finir le contenu avec Simon (favicon, réseaux sociaux, autres images éventuelles).
-2. Dans quelques jours : vérifier dans Search Console que le sitemap est « Réussite » et que les pages sont indexées.
+1. Dans quelques jours : vérifier dans Search Console que le sitemap est « Réussite » et que les pages sont indexées.
+2. Ajouter Simon ou le développeur comme utilisateurs de la propriété Search Console si besoin (Paramètres → Utilisateurs et autorisations).
 3. Plus tard : générer le catalogue depuis les collections `_livres/`/`_histoires/` (déclarer les collections, layout fiche), réactiver le carrousel des histoires.
