@@ -51,7 +51,9 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`site.lien_amazon_tortok`, nouvel onglet).
 - **Catalogue** (`catalogue.md`, cartes écrites à la main pour l'instant, pas encore générées depuis `_livres/`) : carte Tortok (couverture `images/cover_tortok.jpg`, lien Amazon) ; cartes « Tome 2 (à venir) » et « Tome 3 (à venir) » sans lien (`<div>`, pas `<a>`). Section Histoires : « À venir » ; le carrousel des histoires est conservé dans un bloc `{% comment %}` Liquid, à réactiver quand les histoires arriveront.
 - **Encadré « Nouvelles »** sur l'accueil (sous la phrase de Bourtouk) : carte « Maintenant disponible » avec la couverture, le titre, l'auteur et « Acheter sur Amazon » ; toute la carte est un lien vers Amazon. Approuvé tel quel par l'utilisateur.
-- **Footer** : « Éditions Coquerelle » est un lien vers la page Éditeur.
+- **Footer** : « Éditions Coquerelle » est un lien vers la page Éditeur ; icônes Facebook et Instagram (SVG en ligne, nouvel onglet), adresses dans `_config.yml` (`facebook_url`, `instagram_url`, et `social.links` pour jekyll-seo-tag). La page Facebook n'a pas de nom d'utilisateur (adresse `profile.php?id=…`) ; Instagram : `@editionscoquerelle`.
+- **Favicon** : `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png` à la racine (coquerelle jaune sur carré brun foncé, générés depuis `images/logo-coquerelle.png`).
+- **Cache navigateur** : `style.css` et `main.js` sont appelés avec `?v=<horodatage du build>` dans le layout, pour forcer le rechargement après chaque déploiement.
 - **Fond du site blanc** (`--color-bg: #ffffff`, était crème `#fdf8f0`) pour que l'image de Bourtouk (fond blanc) se fonde dans la page. La version sans fond `images/brtksansfond.png` existe si on revient à un fond coloré.
 - **Pièges connus** : le Markdown à l'intérieur d'un `<div>` n'est interprété par kramdown qu'avec `markdown="1"` (sinon `# Titre` s'affiche tel quel) ; `extraits.md` est écrit en HTML pur à la place.
 
