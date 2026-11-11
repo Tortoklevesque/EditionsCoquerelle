@@ -3,6 +3,10 @@ description: >-
   Maison d'édition de Tortok (Simon Lévesque).
 lang: fr
 
+# Adresse publique du site (domaine personnalisé, branché le 2026-11-10).
+url: "https://editionscoquerelle.ca"
+baseurl: ""
+
 # Ambiance graphique. « metal » charge assets/css/metal.css (fond noir, police Metal Mania,
 # rouge sang) et la version détourée de Bourtouk. Pour revenir au style d'origine (fond blanc),
 # mettre un # devant la ligne ci-dessous.
