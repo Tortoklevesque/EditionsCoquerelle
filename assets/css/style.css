@@ -218,21 +218,13 @@ main {
   clear: both;
 }
 
-.portrait-placeholder {
+.portrait-image {
   float: left;
   width: 220px;
-  aspect-ratio: 3 / 4;
+  height: auto;
   margin: 0 1.5rem 1rem 0;
-  background: var(--color-border);
-  border: 1px dashed var(--color-text-muted);
   border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .cover-image {
@@ -245,7 +237,8 @@ main {
 }
 
 @media (max-width: 480px) {
-  .cover-image {
+  .cover-image,
+  .portrait-image {
     float: none;
     display: block;
     margin: 0 auto 1rem;
