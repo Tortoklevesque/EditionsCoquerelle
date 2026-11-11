@@ -80,6 +80,7 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 
 ## Ton et ambiance
 - **Ambiance voulue : label death metal**, humour noir assumé (décidé avec Simon le 2026-11-10). Textes courts et provocateurs (Éditeur : « Des publications de mauvais goût pour le monde qui n'aime pas lire. » ; Auteur : « Bureaucrate de jour. Psychopathe de nuit. »). La photo de l'auteur est volontairement à l'horizontale : ne pas la « corriger ».
+- **Ambiance metal (essai du 2026-11-10, en ligne)** : couche `assets/css/metal.css` (fond noir granuleux, police Google Fonts « Metal Mania » pour les titres, liens jaune coquerelle, rouge sang `#b3121f` pour boutons, badges et filets ; Bourtouk détouré `brtksansfond.png` avec contour pâle). Activée par `ambiance: metal` dans `_config.yml` (le layout charge alors la police et `metal.css`, l'accueil la version détourée de Bourtouk). **Retour arrière** : commenter cette ligne (style d'origine sur fond blanc, rien d'autre à toucher) ; ou, en dernier recours, l'étiquette git `avant-death-metal` marque l'état complet d'avant l'essai.
 - Photo de l'auteur : version Web `images/simon-levesque-portrait.jpg` (800 px) ; l'original `images/simon_levesque.jpg` est ignoré par git (`.gitignore`).
 
 ## Plan du site
