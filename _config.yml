@@ -3,6 +3,11 @@ description: >-
   Maison d'édition de Tortok (Simon Lévesque).
 lang: fr
 
+# Ambiance graphique. « metal » charge assets/css/metal.css (fond noir, police Metal Mania,
+# rouge sang) et la version détourée de Bourtouk. Pour revenir au style d'origine (fond blanc),
+# mettre un # devant la ligne ci-dessous.
+ambiance: metal
+
 # Lien de vente Amazon du livre Tortok (fiche produit, adresse directe).
 lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
 

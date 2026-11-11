@@ -1,0 +1,160 @@
+/* Ambiance « label death metal » — couche par-dessus style.css.
+   Activée par `ambiance: metal` dans _config.yml. Pour revenir au style d'origine :
+   retirer (ou commenter) cette ligne ; ce fichier n'est alors plus chargé. */
+
+:root {
+  --color-bg: #0b0a09;            /* noir charbon */
+  --color-surface: #151210;
+  --color-text: #e9e2d4;          /* blanc os */
+  --color-text-muted: #a89c8b;
+  --color-border: #3a2f27;
+
+  --color-primary: #f6c915;       /* jaune coquerelle : liens (contraste élevé sur noir) */
+  --color-primary-dark: #ffde4d;
+  --color-blood: #b3121f;         /* rouge sang : boutons, filets, décor */
+  --color-blood-light: #d81e2c;
+
+  --color-footer-bg: #000000;
+  --color-footer-text: #e9e2d4;
+
+  --font-metal: "Metal Mania", "Pirata One", Georgia, serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  /* grain discret façon pochette photocopiée */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Titres et nom du site en police métal */
+h1, h2,
+.site-name,
+.nouvelle-titre,
+.footer-name {
+  font-family: var(--font-metal);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.1;
+  color: var(--color-text);
+  text-shadow: 0 0 18px rgba(179, 18, 31, 0.55);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--color-text);
+}
+
+/* En-tête : noir avec filet rouge sang */
+.site-header {
+  background: rgba(11, 10, 9, 0.96);
+  border-bottom: 2px solid var(--color-blood);
+}
+
+.site-name {
+  font-size: 1.5rem;
+}
+
+.site-logo:hover,
+.site-logo:focus {
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  background: var(--color-blood);
+  color: #fff;
+}
+
+:focus-visible {
+  outline-color: var(--color-primary);
+}
+
+/* Boutons : rouge sang, texte blanc */
+.button {
+  background: var(--color-blood);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 0.2rem;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--color-blood-light);
+  color: #fff;
+}
+
+/* Bourtouk (version détourée) : contour pâle pour le détacher du noir */
+.hero-image {
+  filter:
+    drop-shadow(0 0 1px #e9e2d4)
+    drop-shadow(0 0 1px #e9e2d4)
+    drop-shadow(0 0 22px rgba(179, 18, 31, 0.6));
+}
+
+.bonhomme-zone:hover,
+.bonhomme-zone:focus-visible {
+  background: rgba(179, 18, 31, 0.35);
+}
+
+.bonhomme-zone::after {
+  background: var(--color-blood);
+  color: #fff;
+}
+
+/* Images : ombres plus dures */
+.portrait-image,
+.cover-image,
+.nouvelle-image {
+  border-radius: 0.2rem;
+  box-shadow: 0 0 0 1px var(--color-border), 0 6px 18px rgba(0, 0, 0, 0.8);
+}
+
+/* Encadrés */
+.nouvelles,
+.extrait-box {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  border-radius: 0.2rem;
+}
+
+.nouvelles {
+  border-top: 3px solid var(--color-blood);
+}
+
+.extrait-box {
+  border-left-color: var(--color-blood);
+}
+
+.badge {
+  background: var(--color-blood);
+  color: #fff;
+  border-radius: 0.15rem;
+}
+
+.nouvelle-titre {
+  font-size: 2rem;
+}
+
+/* Séparateur et pied de page */
+.section-separator {
+  background: var(--color-blood);
+  height: 2px;
+  margin: 2rem 0 0;
+}
+
+.footer-name {
+  font-size: 1.4rem;
+}
+
+.footer-name a {
+  text-decoration: none;
+}

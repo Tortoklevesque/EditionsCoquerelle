@@ -5,7 +5,7 @@ title: Éditions Coquerelle
 
 <section class="hero">
   <div class="bonhomme">
-    <img class="hero-image" src="{{ '/images/bourtouk-couleur.png' | relative_url }}" alt="Bourtouk">
+    <img class="hero-image" src="{% if site.ambiance == "metal" %}{{ '/images/brtksansfond.png' | relative_url }}{% else %}{{ '/images/bourtouk-couleur.png' | relative_url }}{% endif %}" alt="Bourtouk">
 
     <!-- Zones cliquables en pourcentage (suivent la taille de l'image en responsive) -->
     <a class="bonhomme-zone bonhomme-zone--main" href="{{ '/catalogue/' | relative_url }}"
