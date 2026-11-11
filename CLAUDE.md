@@ -14,7 +14,7 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 - **GitHub Pages**, gratuit, supporte le domaine `.ca` personnalisé + HTTPS automatique. Pas besoin de Netlify/Cloudflare pour l'instant.
 - Le repo GitHub appartient à **Simon** (compte `Tortoklevesque`), pas au compte du développeur, pour des raisons de propriété (site + transactions = son entreprise). Repo : `github.com/Tortoklevesque/EditionsCoquerelle`. Le développeur (compte GitHub `jy-cote`) y a accès en écriture (pas admin — ne peut pas activer Pages lui-même).
 - `gh` (GitHub CLI) installé localement (version portable, sans droits admin, dans `%LOCALAPPDATA%\GitHubCLI`) et authentifié sous `jy-cote` — Claude Code peut pousser directement une fois confirmation donnée pour chaque push.
-- **Repo public** et **GitHub Pages actif** (vérifié 2026-11-09) : source branche `main`, `/ (root)`, HTTPS forcé. Site en ligne à `https://tortoklevesque.github.io/EditionsCoquerelle/` (chaque `push` sur `main` republie le site). Domaine personnalisé pas encore configuré (pas de fichier `CNAME`) : instructions détaillées pour Simon dans **`INSTRUCTIONS-DNS-SIMON.md`** (exclu du build).
+- **Repo public** et **GitHub Pages actif** (vérifié 2026-11-09) : source branche `main`, `/ (root)`, HTTPS forcé. Site en ligne à `https://tortoklevesque.github.io/EditionsCoquerelle/` (chaque `push` sur `main` republie le site). **Domaine `editionscoquerelle.ca` branché le 2026-11-10** : zone DNS WHC modifiée (4 A `@` vers 185.199.108-111.153, CNAME `www` → `tortoklevesque.github.io.` ; A `emailfwd`, MX, TXT SPF conservés ; ancienne valeur A `@` : 149.56.225.6), domaine déclaré par Simon dans Settings → Pages, fichier `CNAME` dans le dépôt, `url`/`baseurl` fixés dans `_config.yml`. L'ancienne adresse `github.io` redirige vers le domaine. Le compte `jy-cote` n'a pas accès à Settings (404) : toute modification de Pages passe par Simon. Redirection de courriel WHC : 0/3 configurée (`info@` n'a jamais reçu de courriel).
 - Simon modifie parfois le repo directement sur GitHub (téléversements, édition de `informations-a-completer.md`) : toujours faire `git fetch` / `git pull --ff-only` avant de travailler.
 
 ## Structure de contenu prévue — Jekyll
@@ -74,7 +74,7 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **Push automatisé par Claude Code** : possible une fois le repo cloné localement et l'authentification GitHub configurée (`gh auth login`, clé SSH, ou token). Depuis le 2026-11-09, le développeur a demandé de **pousser à chaque modification** (pas de prévisualisation locale possible), puis de vérifier le résultat en ligne dans Chrome. Toujours `git pull --ff-only` avant, et ne committer que les fichiers voulus (vérifier `git status` : Simon ou le développeur peuvent déposer des fichiers entre-temps).
 
 ## En attente de Simon
-- Configuration DNS chez WHC + domaine personnalisé dans Settings → Pages : voir `INSTRUCTIONS-DNS-SIMON.md`.
+- Cocher **Enforce HTTPS** dans Settings → Pages (compte Tortoklevesque) : grisé juste après le branchement (« domain is not properly configured to support HTTPS ») alors que le certificat est approuvé ; attendre et recharger, sinon retirer puis remettre le domaine.
 - Autres images (annoncées pour le 2026-11-09 en fin de journée) et liste complète dans `informations-a-completer.md`.
 
 ## Courriel de contact
@@ -95,6 +95,6 @@ Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 
 ## Étapes suivantes
 1. Finir le contenu avec Simon (favicon, réseaux sociaux, autres images éventuelles).
-2. Transmettre `INSTRUCTIONS-DNS-SIMON.md` à Simon ; après le branchement, `git pull` pour récupérer le fichier `CNAME` créé par GitHub, et vérifier le site sous `editionscoquerelle.ca`.
-3. Google Search Console (après le domaine).
+2. Enforce HTTPS (Simon), puis vérifier `http://` → `https://`.
+3. Google Search Console (compte Google de Simon) : propriété `editionscoquerelle.ca`, validation TXT chez WHC, soumission de `https://editionscoquerelle.ca/sitemap.xml`.
 4. Plus tard : générer le catalogue depuis les collections `_livres/`/`_histoires/` (déclarer les collections, layout fiche), réactiver le carrousel des histoires.
