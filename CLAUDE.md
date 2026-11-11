@@ -70,11 +70,13 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **Push automatisé par Claude Code** : possible une fois le repo cloné localement et l'authentification GitHub configurée (`gh auth login`, clé SSH, ou token). Depuis le 2026-11-09, le développeur a demandé de **pousser à chaque modification** (pas de prévisualisation locale possible), puis de vérifier le résultat en ligne dans Chrome. Toujours `git pull --ff-only` avant, et ne committer que les fichiers voulus (vérifier `git status` : Simon ou le développeur peuvent déposer des fichiers entre-temps).
 
 ## En attente de Simon
-- Texte de la page **Éditeur** (actuellement lorem ipsum).
-- **Photo** et **texte** de la page **Auteur** (le titre « Simon Lévesque » est en place au-dessus du lorem ipsum).
 - Configuration DNS chez WHC + domaine personnalisé dans Settings → Pages : voir `INSTRUCTIONS-DNS-SIMON.md`.
 - Confirmer que `info@editionscoquerelle.ca` (affiché sur la page Éditeur) arrive bien (redirection de courriel WHC).
 - Autres images (annoncées pour le 2026-11-09 en fin de journée) et liste complète dans `informations-a-completer.md`.
+
+## Ton et ambiance
+- **Ambiance voulue : label death metal**, humour noir assumé (décidé avec Simon le 2026-11-10). Textes courts et provocateurs (Éditeur : « Des publications de mauvais goût pour le monde qui n'aime pas lire. » ; Auteur : « Bureaucrate de jour. Psychopathe de nuit. »). La photo de l'auteur est volontairement à l'horizontale : ne pas la « corriger ».
+- Photo de l'auteur : version Web `images/simon-levesque-portrait.jpg` (800 px) ; l'original `images/simon_levesque.jpg` est ignoré par git (`.gitignore`).
 
 ## Plan du site
 Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
@@ -82,10 +84,10 @@ Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 ## État d'avancement
 - Structure Jekyll de base en place (commit `38b864e`) : `_config.yml`, layout `default.html`, gabarits `_livres/`/`_histoires/`/`_extraits/` (exclus du build), pages `index`, `catalogue`, `auteur`, `editeur`, `extraits`.
 - Session du 2026-11-09 (site de base, publication rapide) : synchronisation avec les modifications de Simon ; Square remplacé par le lien Amazon ; titre du livre corrigé en « Tortok » ; couverture intégrée ; résumé et extraits aléatoires sur la page Extraits ; encadré Nouvelles sur l'accueil ; fond blanc ; lien footer → Éditeur ; correction du Markdown non interprété dans les pages ; métadonnées JSON-LD, sitemap, robots.txt et balises de partage ; nom de domaine et cible DNS corrigés dans ce fichier ; instructions DNS rédigées pour Simon.
-- **Le site est publiable dès que les textes Éditeur et Auteur (et la photo de l'auteur) sont fournis**, puis le domaine branché.
+- Session du 2026-11-10 (avec Simon) : textes Éditeur et Auteur et photo de l'auteur intégrés. Simon veut finir le site avant de brancher le domaine.
 
 ## Étapes suivantes
-1. Intégrer les textes Éditeur/Auteur et la photo de l'auteur dès réception.
+1. Finir le contenu avec Simon (favicon, réseaux sociaux, autres images éventuelles).
 2. Transmettre `INSTRUCTIONS-DNS-SIMON.md` à Simon ; après le branchement, `git pull` pour récupérer le fichier `CNAME` créé par GitHub, et vérifier le site sous `editionscoquerelle.ca`.
 3. Google Search Console (après le domaine).
 4. Plus tard : générer le catalogue depuis les collections `_livres/`/`_histoires/` (déclarer les collections, layout fiche), réactiver le carrousel des histoires.
