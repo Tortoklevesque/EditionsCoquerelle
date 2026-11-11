@@ -486,6 +486,37 @@ a.carousel-card:focus-visible .card-title {
   font-weight: 600;
 }
 
+/* Liens vers les réseaux sociaux */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin: 0.4rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-social a {
+  display: inline-flex;
+  padding: 0.5rem;            /* zone cliquable d'au moins 44 px */
+  border-radius: 0.5rem;
+  color: var(--color-footer-text);
+  transition: color 0.15s;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--color-accent);
+}
+
+.footer-social a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.footer-social-cutout {
+  fill: var(--color-footer-bg);
+}
+
 .footer-copyright {
   font-size: 0.85rem;
   opacity: 0.8;

@@ -6,6 +6,17 @@ lang: fr
 # Lien de vente Amazon du livre Tortok (fiche produit, adresse directe).
 lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
 
+# Réseaux sociaux (pied de page). La page Facebook n'a pas de nom d'utilisateur : adresse par identifiant.
+facebook_url: "https://www.facebook.com/profile.php?id=61585730464300"
+instagram_url: "https://www.instagram.com/editionscoquerelle/"
+
+# Profils sociaux déclarés aux moteurs de recherche (jekyll-seo-tag, propriété sameAs)
+social:
+  name: Éditions Coquerelle
+  links:
+    - "https://www.facebook.com/profile.php?id=61585730464300"
+    - "https://www.instagram.com/editionscoquerelle/"
+
 plugins:
   - jekyll-sitemap   # génère /sitemap.xml (plugin supporté nativement par GitHub Pages)
   - jekyll-seo-tag   # balises de partage (Open Graph, Twitter), meta description, URL canonique
