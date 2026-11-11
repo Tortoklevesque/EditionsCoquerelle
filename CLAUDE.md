@@ -67,7 +67,7 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
 - **index.html à la racine** : requis pour que GitHub Pages serve la page d'accueil (avec Jekyll, `index.md` est converti automatiquement).
 - **Indexation Google** : pas automatique/garantie rapidement pour un domaine neuf. À faire :
   - Fait (2026-11-09) : `sitemap.xml` généré par `jekyll-sitemap` (déclaré dans `plugins` de `_config.yml`) et `robots.txt` (pointe vers le sitemap via `absolute_url`, suit donc le domaine). Métadonnées JSON-LD `Book` pour Tortok (`_data/tortok.yml`, `_includes/tortok-jsonld.html`). `robots.txt` n'est lu par les robots qu'à la racine d'un domaine : effectif seulement une fois `editionscoquerelle.ca` branché.
-  - À faire : propriété Google Search Console (compte Google de Simon, idéalement après le branchement du domaine `.ca`), validation par enregistrement TXT chez WHC, soumission du sitemap, demande d'indexation de l'accueil.
+  - Fait (2026-11-10) : **Google Search Console**, propriété de type Domaine `editionscoquerelle.ca` sur le compte Google `editionscoquerelle@gmail.com` (« Coquerelle Premium », 3e compte connecté dans le Chrome du développeur, `/u/2/`). Validée par un TXT `google-site-verification=…` chez WHC (**ne pas supprimer** ce TXT, sinon la propriété est perdue). Sitemap `https://editionscoquerelle.ca/sitemap.xml` soumis (« Impossible de récupérer » affiché juste après l'envoi alors que le sitemap répond 200 : état transitoire d'une propriété neuve, Google l'a quand même lu) ; indexation de l'accueil demandée.
   - Fait (2026-11-09) : balises de partage via `jekyll-seo-tag` (`{% seo title=false %}` dans le layout ; Open Graph, Twitter Cards, URL canonique, meta description). `locale: fr_CA` ; image par défaut Bourtouk (`defaults` dans `_config.yml`), couverture de Tortok sur Catalogue et Extraits (`image:` dans le front matter). Accueil : titre « Éditions Coquerelle », description du site « Maison d'édition de Tortok (Simon Lévesque). » (choisie par l'utilisateur ; sert aussi par défaut aux pages sans description).
   - Titres et descriptions uniques par page/livre (via le front matter Jekyll).
 - **Vérifier un déploiement** : passer par les runs GitHub Actions (`gh run list` / `gh run watch`), pas par l'API `pages/builds` qui affiche de faux « errored ». Cache CDN d'environ 10 min (Ctrl+Shift+R). Pas de Ruby/Jekyll sur le poste : on pousse et on vérifie en ligne.
@@ -94,5 +94,5 @@ Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 
 ## Étapes suivantes
 1. Finir le contenu avec Simon (favicon, réseaux sociaux, autres images éventuelles).
-2. Google Search Console (compte Google de Simon) : propriété `editionscoquerelle.ca`, validation TXT chez WHC, soumission de `https://editionscoquerelle.ca/sitemap.xml`.
+2. Dans quelques jours : vérifier dans Search Console que le sitemap est « Réussite » et que les pages sont indexées.
 3. Plus tard : générer le catalogue depuis les collections `_livres/`/`_histoires/` (déclarer les collections, layout fiche), réactiver le carrousel des histoires.
