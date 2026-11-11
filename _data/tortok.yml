@@ -2,7 +2,10 @@
 # et la balise meta description. Non affichées telles quelles sur le site.
 titre: "Tortok"
 auteur: "Simon Lévesque"
-isbn: "2982553309"
+isbn: "9782982553309"      # ISBN-13 (fiche libraire) ; l'ASIN Amazon est 2982553309
+pages: 214
+format: "Paperback"        # broché, 5 x 8 po
+parution: "2026-10"
 langue: "fr"
 editeur: "Éditions Coquerelle"
 resume: |-
