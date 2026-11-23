@@ -1,0 +1,6 @@
+{%- comment -%}
+  Lien Amazon de Tortok, lu dans _livres/tortok.md (source unique, modifiable par l'interface d'administration).
+  Usage : dans un attribut href, inclure ce fichier (include lien-amazon-tortok.html).
+{%- endcomment -%}
+{%- assign livre_tortok = site.livres | where: "slug", "tortok" | first -%}
+{{- livre_tortok.lien_amazon -}}

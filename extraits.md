@@ -22,7 +22,7 @@ permalink: /extraits/
 {%- endfor %}
 </div>
 
-<p class="extract-source">Extrait de : <a href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">Tortok</a> (en vente sur Amazon)</p>
+<p class="extract-source">Extrait de : <a href="{% include lien-amazon-tortok.html %}" target="_blank" rel="noopener">Tortok</a> (en vente sur Amazon)</p>
 
 <div class="extrait-box" aria-live="polite">
   {%- for extrait in site.extraits %}

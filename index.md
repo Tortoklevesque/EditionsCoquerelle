@@ -16,7 +16,7 @@ title: Éditions Coquerelle
        style="top: 42%; left: 25%; width: 40%; height: 22%;"
        aria-label="Extraits gratuits" data-label="Extraits gratuits"></a>
 
-    <a class="bonhomme-zone bonhomme-zone--fesses" href="{{ site.lien_amazon_tortok }}"
+    <a class="bonhomme-zone bonhomme-zone--fesses" href="{% include lien-amazon-tortok.html %}"
        style="top: 63%; left: 18%; width: 60%; height: 18%;"
        aria-label="Boutique Amazon" data-label="Boutique Amazon" target="_blank" rel="noopener"></a>
 
@@ -30,7 +30,7 @@ title: Éditions Coquerelle
 
 <section class="nouvelles" aria-labelledby="nouvelles-titre">
   <h2 id="nouvelles-titre">Nouvelles</h2>
-  <a class="nouvelle-carte" href="{{ site.lien_amazon_tortok }}" target="_blank" rel="noopener">
+  <a class="nouvelle-carte" href="{% include lien-amazon-tortok.html %}" target="_blank" rel="noopener">
     <img class="nouvelle-image" src="{{ '/images/cover_tortok.jpg' | relative_url }}" alt="">
     <span class="nouvelle-texte">
       <span class="badge">Maintenant disponible</span>

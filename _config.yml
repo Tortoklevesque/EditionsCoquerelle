@@ -12,8 +12,8 @@ baseurl: ""
 # mettre un # devant la ligne ci-dessous.
 ambiance: metal
 
-# Lien de vente Amazon du livre Tortok (fiche produit, adresse directe).
-lien_amazon_tortok: "https://www.amazon.ca/dp/2982553309"
+# Lien de vente Amazon de Tortok : champ « lien_amazon » de _livres/tortok.md (source unique,
+# lu par _includes/lien-amazon-tortok.html).
 
 # Réseaux sociaux (pied de page). La page Facebook n'a pas de nom d'utilisateur : adresse par identifiant.
 facebook_url: "https://www.facebook.com/profile.php?id=61585730464300"
@@ -51,6 +51,3 @@ exclude:
   - SITEMAP.md
   - informations-a-completer.md
   - INSTRUCTIONS-DNS-SIMON.md
-  - _livres/GABARIT.md
-  - _histoires/GABARIT.md
-  - _extraits/GABARIT.md

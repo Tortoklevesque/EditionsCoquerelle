@@ -1,0 +1,102 @@
+# Réglages de l'interface d'administration (Sveltia CMS, compatible Decap CMS).
+# Chaque enregistrement dans l'interface crée un commit sur main, ce qui republie le site.
+
+backend:
+  name: github
+  repo: Tortoklevesque/EditionsCoquerelle
+  branch: main
+  commit_messages:
+    create: "Ajoute {{collection}} « {{slug}} » (interface d'administration)"
+    update: "Modifie {{collection}} « {{slug}} » (interface d'administration)"
+    delete: "Supprime {{collection}} « {{slug}} » (interface d'administration)"
+    uploadMedia: "Téléverse « {{path}} » (interface d'administration)"
+    deleteMedia: "Supprime « {{path}} » (interface d'administration)"
+
+site_url: https://editionscoquerelle.ca
+locale: fr
+
+# Images téléversées : rangées dans images/, référencées /images/nom.jpg
+media_folder: images
+public_folder: /images
+
+# Noms de fichiers : sans accents ni espaces (ex. « La bébite » → la-bebite.md)
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: livres
+    label: Livres
+    label_singular: Livre
+    description: "Livres du catalogue. L'ordre d'affichage suit le champ « Ordre »."
+    folder: _livres
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{titre}}"
+    identifier_field: titre
+    summary: "{{ordre}}. {{titre}}"
+    sortable_fields: [ordre, titre]
+    fields: &champs_oeuvre
+      - { name: titre, label: Titre, widget: string }
+      - name: a_venir
+        label: "À venir"
+        widget: boolean
+        default: false
+        hint: "Coché : carte sans lien, titre suivi de « (à venir) »."
+      - name: image
+        label: Couverture
+        widget: image
+        required: false
+        hint: "Laisser vide pour afficher « Image à venir »."
+      - name: lien_amazon
+        label: Lien Amazon
+        widget: string
+        required: false
+        hint: "Adresse complète de la fiche Amazon (https://www.amazon.ca/dp/...). Vide : carte sans lien."
+      - name: ordre
+        label: Ordre
+        widget: number
+        value_type: int
+        default: 10
+        hint: "Position dans le catalogue (1 = en premier)."
+
+  - name: histoires
+    label: Histoires
+    label_singular: Histoire
+    description: "Histoires du catalogue. Dès qu'il y en a une, le carrousel remplace « À venir »."
+    folder: _histoires
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{titre}}"
+    identifier_field: titre
+    summary: "{{ordre}}. {{titre}}"
+    sortable_fields: [ordre, titre]
+    fields: *champs_oeuvre
+
+  - name: extraits
+    label: Extraits gratuits
+    label_singular: Extrait
+    description: "Extraits affichés au hasard dans l'encadré de la page Extraits gratuits."
+    folder: _extraits
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{livre}}-{{year}}{{month}}{{day}}-{{hour}}{{minute}}"
+    summary: "{{livre}} — {{slug}}"
+    fields:
+      - name: livre
+        label: Livre
+        widget: relation
+        collection: livres
+        value_field: titre
+        search_fields: [titre]
+        display_fields: [titre]
+      - name: body
+        label: Texte de l'extrait
+        widget: markdown
+        hint: "Laisser une ligne vide entre les paragraphes."

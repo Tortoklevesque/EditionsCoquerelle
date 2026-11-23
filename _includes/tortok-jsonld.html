@@ -1,4 +1,5 @@
 {%- assign t = site.data.tortok -%}
+{%- capture lien_amazon -%}{% include lien-amazon-tortok.html %}{%- endcapture -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -16,7 +17,7 @@
   "url": {{ page.url | absolute_url | jsonify }},
   "offers": {
     "@type": "Offer",
-    "url": {{ site.lien_amazon_tortok | jsonify }},
+    "url": {{ lien_amazon | jsonify }},
     "seller": { "@type": "Organization", "name": "Amazon.ca" }
   }
 }
