@@ -1,0 +1,35 @@
+{%- comment -%}
+  Catalogue généré à partir des collections _livres/ et _histoires/ (triées par le champ « ordre »).
+  Section Histoires : « À venir » tant que la collection est vide, sinon carrousel.
+{%- endcomment -%}
+{%- assign livres = site.livres | sort: "ordre" -%}
+{%- assign histoires = site.histoires | sort: "ordre" -%}
+<section class="catalogue-section">
+  <h2>Livres</h2>
+  {% if livres.size > 0 -%}
+  <div class="carousel">
+    <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Livres précédents">&lsaquo;</button>
+    <div class="carousel-track" aria-label="Carrousel des livres">
+{% for livre in livres %}{% include carte-catalogue.html item=livre %}
+{% endfor %}    </div>
+    <button class="carousel-btn carousel-btn--next" type="button" aria-label="Livres suivants">&rsaquo;</button>
+  </div>
+  {%- else -%}
+  <p class="a-venir">À venir</p>
+  {%- endif %}
+</section>
+
+<section class="catalogue-section">
+  <h2>Histoires</h2>
+  {% if histoires.size > 0 -%}
+  <div class="carousel">
+    <button class="carousel-btn carousel-btn--prev" type="button" aria-label="Histoires précédentes">&lsaquo;</button>
+    <div class="carousel-track" aria-label="Carrousel des histoires">
+{% for histoire in histoires %}{% include carte-catalogue.html item=histoire %}
+{% endfor %}    </div>
+    <button class="carousel-btn carousel-btn--next" type="button" aria-label="Histoires suivantes">&rsaquo;</button>
+  </div>
+  {%- else -%}
+  <p class="a-venir">À venir</p>
+  {%- endif %}
+</section>

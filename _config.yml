@@ -39,6 +39,10 @@ defaults:
       image: /images/bourtouk-couleur.png
 
 collections:
+  livres:
+    output: false   # pas encore de page par livre : affichés dans le catalogue (_includes/catalogue.html)
+  histoires:
+    output: false   # idem pour les histoires
   extraits:
     output: false   # pas de page par extrait : ils sont affichés dans la page Extraits gratuits
 

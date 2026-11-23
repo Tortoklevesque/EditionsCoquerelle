@@ -1,0 +1,24 @@
+{%- comment -%}
+  Une carte du catalogue (livre ou histoire). Paramètre : include.item (document de _livres/ ou _histoires/).
+  - a_venir: true  → carte sans lien, titre suivi de « (à venir) »
+  - lien_amazon    → carte cliquable vers Amazon (nouvel onglet)
+  - image          → chemin depuis la racine (/images/...) ou nom de fichier dans images/
+{%- endcomment -%}
+{%- assign item = include.item -%}
+{%- assign src = item.image -%}
+{%- if src and src != "" -%}
+  {%- assign premier = src | slice: 0 -%}
+  {%- unless premier == "/" -%}{%- assign src = "/images/" | append: src -%}{%- endunless -%}
+{%- endif -%}
+{%- if item.lien_amazon and item.lien_amazon != "" and item.a_venir != true -%}
+      <a class="carousel-card" href="{{ item.lien_amazon }}" target="_blank" rel="noopener">
+{%- else -%}
+      <div class="carousel-card">
+{%- endif %}
+        {% if src and src != "" -%}
+        <img class="card-image" src="{{ src | relative_url }}" alt="">
+        {%- else -%}
+        <div class="card-image-placeholder" aria-hidden="true">Image à venir</div>
+        {%- endif %}
+        <p class="card-title">{{ item.titre }}{% if item.a_venir %} (à venir){% endif %}{% if item.lien_amazon and item.lien_amazon != "" and item.a_venir != true %} <span class="visually-hidden">(acheter sur Amazon, nouvel onglet)</span>{% endif %}</p>
+{% if item.lien_amazon and item.lien_amazon != "" and item.a_venir != true %}      </a>{% else %}      </div>{% endif %}
