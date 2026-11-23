@@ -1,0 +1,29 @@
+{%- comment -%}
+  Encadré « Nouvelles » de l'accueil : livres et histoires avec « vedette: true », triés par « ordre ».
+  Champs utilisés : titre, image, lien_amazon, a_venir, auteur, vedette_mention (texte du badge).
+  Aucun élément en vedette → encadré absent.
+{%- endcomment -%}
+{%- assign vedettes = site.livres | concat: site.histoires | where: "vedette", true | sort: "ordre" -%}
+{%- if vedettes.size > 0 %}
+<section class="nouvelles" aria-labelledby="nouvelles-titre">
+  <h2 id="nouvelles-titre">Nouvelles</h2>
+  {%- for item in vedettes %}
+  {%- assign src = item.image -%}
+  {%- if src and src != "" -%}
+    {%- assign premier = src | slice: 0 -%}
+    {%- unless premier == "/" -%}{%- assign src = "/images/" | append: src -%}{%- endunless -%}
+  {%- endif -%}
+  {%- assign avec_lien = false -%}
+  {%- if item.lien_amazon and item.lien_amazon != "" and item.a_venir != true -%}{%- assign avec_lien = true -%}{%- endif %}
+  {% if avec_lien %}<a class="nouvelle-carte" href="{{ item.lien_amazon }}" target="_blank" rel="noopener">{% else %}<div class="nouvelle-carte">{% endif %}
+    {% if src and src != "" %}<img class="nouvelle-image" src="{{ src | relative_url }}" alt="">{% endif %}
+    <span class="nouvelle-texte">
+      {% if item.vedette_mention and item.vedette_mention != "" %}<span class="badge">{{ item.vedette_mention }}</span>{% endif %}
+      <span class="nouvelle-titre">{{ item.titre }}</span>
+      {% if item.auteur and item.auteur != "" %}<span class="nouvelle-auteur">{{ item.auteur }}</span>{% endif %}
+      {% if avec_lien %}<span class="nouvelle-action">Acheter sur Amazon <span class="visually-hidden">(nouvel onglet)</span></span>{% endif %}
+    </span>
+  {% if avec_lien %}</a>{% else %}</div>{% endif %}
+  {%- endfor %}
+</section>
+{%- endif %}

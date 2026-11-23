@@ -597,6 +597,10 @@ a.carousel-card:focus-visible .card-title {
   text-decoration: none;
 }
 
+.nouvelle-carte + .nouvelle-carte {
+  margin-top: 1.25rem;
+}
+
 .nouvelle-image {
   width: 110px;
   height: auto;

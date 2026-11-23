@@ -61,6 +61,23 @@ collections:
         value_type: int
         default: 10
         hint: "Position dans le catalogue (1 = en premier)."
+      - name: vedette
+        label: En vedette sur l'accueil
+        widget: boolean
+        default: false
+        hint: "Coché : affiché dans l'encadré « Nouvelles » de l'accueil. Aucun élément coché : l'encadré disparaît."
+      - name: vedette_mention
+        label: Mention en vedette
+        widget: string
+        required: false
+        default: "Maintenant disponible"
+        hint: "Petit bandeau rouge au-dessus du titre dans « Nouvelles » (ex. « Maintenant disponible », « À paraître »). Vide : pas de bandeau."
+      - name: auteur
+        label: Auteur
+        widget: string
+        required: false
+        default: "Simon Lévesque"
+        hint: "Affiché sous le titre dans « Nouvelles »."
 
   - name: histoires
     label: Histoires
