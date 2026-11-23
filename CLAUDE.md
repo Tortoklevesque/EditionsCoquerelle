@@ -5,7 +5,7 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 
 - Nom de domaine : `editionscoquerelle.ca`, acheté par Simon chez WHC (Web Hosting Canada), renouvellement automatique actif (échéance 2027-08-30). Serveurs de noms WHC (`parking1/parking2.whc.ca`) conservés ; la zone se modifie dans l'espace client WHC (engrenage du domaine → « Éditeur de zone DNS »). **Site en ligne sur `https://editionscoquerelle.ca` depuis le 2026-11-10.**
 - **Changement de plan (2026-11-09)** : Simon veut d'abord un **site de base** mis en ligne rapidement, pour avoir une présence web avant de démarcher les librairies. Les fonctionnalités avancées passent après.
-- Vente : **lien vers Amazon** pour le livre *Tortok* (URL centralisée dans `_config.yml`, variable `lien_amazon_tortok`, utilisée par la carte du catalogue, la page Extraits et la zone « fesses » du bonhomme). Valeur : `https://www.amazon.ca/dp/2982553309` (adresse directe de la fiche, ISBN/ASIN 2982553309). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
+- Vente : **lien vers Amazon** pour le livre *Tortok* (source unique : champ `lien_amazon` de `_livres/tortok.md`, lu par `_includes/lien-amazon-tortok.html` pour l'accueil — encadré Nouvelles et zone « fesses » du bonhomme —, la page Extraits et le JSON-LD ; le catalogue le lit directement ; `lien_amazon_tortok` retiré de `_config.yml` le 2026-11-23). Valeur : `https://www.amazon.ca/dp/2982553309` (adresse directe de la fiche, ISBN/ASIN 2982553309). **Square abandonné pour l'instant** (abonnement acheté par Simon, non utilisé).
 - Design : site adaptatif (responsive), rendu identique en mobile et grand écran.
 - Site simple : image de **Bourtouk** affichée en grand (page d'accueil), palette de couleurs du site basée sur les couleurs de cette image. Fichier reçu : `images/bourtouk-couleur.png`.
 - Accessibilité : respect des règles de base (contraste suffisant, texte alternatif sur les images, navigation au clavier, HTML sémantique). Le menu traditionnel (en parallèle du « bonhomme » cliquable, voir plus bas) sert notamment d'équivalent accessible à la navigation par image.
@@ -21,24 +21,18 @@ Site web pour la maison d'édition de **Simon** (auteur), pour publier ses histo
 GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécessaire).
 
 - Deux collections séparées, même structure de front matter : `_livres/` et `_histoires/`.
-- Gabarit créé dans chaque répertoire (`_livres/GABARIT.md`, `_histoires/GABARIT.md`) — à copier/renommer pour chaque nouvel item :
+- Champs d'un livre ou d'une histoire (front matter, un fichier par item) :
   ```
   ---
-  titre: "..."
-  sous_titre: "..."
-  resume: "..."
-  prix: 24.99
-  image: couverture.jpg
-  extrait: ""        # optionnel, chemin vers un extrait gratuit
-  lien_amazon: ""     # optionnel
-  vedette: false      # true pour apparaître dans le carousel de la page d'accueil
+  titre: "Tortok"
+  a_venir: false        # true : carte sans lien, « (à venir) »
+  image: /images/cover_tortok.jpg   # vide : « Image à venir »
+  lien_amazon: "https://www.amazon.ca/dp/..."   # vide : carte sans lien
+  ordre: 1              # position dans le catalogue
   ---
   ```
-- Image associée déposée dans le même répertoire (ou `images/`) avec un nom standard référencé dans le front matter.
-- Un template Jekyll boucle sur chaque collection pour générer catalogue + pages individuelles automatiquement à chaque `push`.
+- Les gabarits `GABARIT.md` ont été supprimés le 2026-11-23 : on ajoute du contenu par l'**interface d'administration** (`/admin/`, voir plus bas) ou en copiant un fichier existant.
 - Markdown+front matter préféré à un CSV (plus robuste pour texte multi-lignes et association d'image).
-- Les fichiers `GABARIT.md` sont exclus du build (`exclude` dans `_config.yml`).
-
 ## Fonctionnalités discutées
 - **Zones cliquables sur une image** : éviter le `<map>/<area>` HTML classique (coordonnées en pixels, casse en responsive). Préférer des liens positionnés en `%` ou un overlay SVG, qui suivent la taille du conteneur.
   - Usage confirmé : un « bonhomme » illustré avec zones cliquables sur différentes parties du corps :
@@ -48,10 +42,10 @@ GitHub Pages supporte Jekyll nativement (pas de build via GitHub Actions nécess
     - pieds → page Libraires (ajouté le 2026-11-10)
   - Un **menu traditionnel** sera aussi présent en parallèle (navigation standard, en plus du bonhomme).
 - **Carousel** : faisable en CSS natif (`scroll-snap`) ou petite librairie JS. Peut se brancher sur le champ `vedette: true` des fichiers de livres pour alimenter automatiquement le carousel de la page d'accueil.
-- **Page Extraits gratuits** (`extraits.md`) : couverture de Tortok + résumé (tiré de `_data/tortok.yml`, même texte que les métadonnées JSON-LD), puis un encadré avec un extrait. Les extraits sont dans la collection `_extraits/` (un fichier par extrait, `output: false`, gabarit `_extraits/GABARIT.md`) ; tous sont inclus dans la page, cachés sauf un, et le bouton « Générer un nouvel extrait aléatoire » en affiche un autre au hasard (`initExtraitAleatoire` dans `assets/js/main.js`). Sans JavaScript, le premier extrait reste visible et le bouton est masqué. L'ancienne page stub `extrait-aleatoire.md` a été supprimée.
-- **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`site.lien_amazon_tortok`, nouvel onglet).
-- **Catalogue** (`catalogue.md`, **généré depuis les collections** depuis le 2026-11-23 ; gabarit `_includes/catalogue.html` + `_includes/carte-catalogue.html`) : un fichier par livre dans `_livres/` (`tortok.md`, `tome-2.md`, `tome-3.md`), triés par le champ `ordre`. Champ `a_venir: true` → carte sans lien (`<div>`), titre suivi de « (à venir) » ; `lien_amazon` → carte cliquable vers Amazon ; `image` → chemin `/images/...` (ou nom de fichier dans `images/`), sinon « Image à venir ». Collections `livres` et `histoires` déclarées avec `output: false` (pas de page individuelle). Section Histoires : « À venir » tant que `_histoires/` est vide, carrousel automatiquement ensuite. Le lien Amazon de Tortok est en double (`_livres/tortok.md` et `lien_amazon_tortok` dans `_config.yml`) : à unifier avec l'interface d'administration. Étiquette git `avant-cms` = état d'avant ces changements. Le layout accepte `noindex: true` dans le front matter (balise robots).
-- **Encadré « Nouvelles »** sur l'accueil (sous la phrase de Bourtouk) : carte « Maintenant disponible » avec la couverture, le titre, l'auteur et « Acheter sur Amazon » ; toute la carte est un lien vers Amazon. Approuvé tel quel par l'utilisateur.
+- **Page Extraits gratuits** (`extraits.md`) : couverture de Tortok + résumé (tiré de `_data/tortok.yml`, même texte que les métadonnées JSON-LD), puis un encadré avec un extrait. Les extraits sont dans la collection `_extraits/` (un fichier par extrait, `output: false`, champ `livre` ; ajout par l'interface d'administration) ; tous sont inclus dans la page, cachés sauf un, et le bouton « Générer un nouvel extrait aléatoire » en affiche un autre au hasard (`initExtraitAleatoire` dans `assets/js/main.js`). Sans JavaScript, le premier extrait reste visible et le bouton est masqué. L'ancienne page stub `extrait-aleatoire.md` a été supprimée.
+- **Lien de vente** : sur la page Extraits gratuits et dans le catalogue, le titre *Tortok* pointe vers Amazon (`_includes/lien-amazon-tortok.html`, nouvel onglet).
+- **Catalogue** (`catalogue.md`, **généré depuis les collections** depuis le 2026-11-23 ; gabarit `_includes/catalogue.html` + `_includes/carte-catalogue.html`) : un fichier par livre dans `_livres/` (`tortok.md`, `tome-2.md`, `tome-3.md`), triés par le champ `ordre`. Champ `a_venir: true` → carte sans lien (`<div>`), titre suivi de « (à venir) » ; `lien_amazon` → carte cliquable vers Amazon ; `image` → chemin `/images/...` (ou nom de fichier dans `images/`), sinon « Image à venir ». Collections `livres` et `histoires` déclarées avec `output: false` (pas de page individuelle). Section Histoires : « À venir » tant que `_histoires/` est vide, carrousel automatiquement ensuite. Étiquette git `avant-cms` = état d'avant ces changements. Le layout accepte `noindex: true` dans le front matter (balise robots).
+- **Interface d'administration** (2026-11-23) : `https://editionscoquerelle.ca/admin/`, **Sveltia CMS** (compatible Decap CMS) chargé depuis unpkg en version fixe (`admin/index.html`), réglages dans `admin/config.yml`. Trois collections : Livres (`_livres/`), Histoires (`_histoires/`, mêmes champs), Extraits gratuits (`_extraits/`, champ `livre` relié aux livres + texte). Images téléversées dans `images/`. Chaque enregistrement = un commit sur `main` (message « … (interface d'administration) »), donc republication. Connexion : **« Se connecter avec un jeton d'accès »** uniquement (le bouton « Se connecter avec GitHub » exige un serveur OAuth qu'on n'a pas). Jeton de Simon : fine-grained, dépôt `EditionsCoquerelle`, permission Contents lecture/écriture ; jeton du développeur (collaborateur) : classique, portée `public_repo`. Page publique mais inutilisable sans droit d'écriture sur le dépôt ; `noindex`, hors sitemap. Non gérés par l'interface : `_data/tortok.yml` (résumé, ISBN…), textes des pages, fiche libraire.- **Encadré « Nouvelles »** sur l'accueil (sous la phrase de Bourtouk) : carte « Maintenant disponible » avec la couverture, le titre, l'auteur et « Acheter sur Amazon » ; toute la carte est un lien vers Amazon. Approuvé tel quel par l'utilisateur.
 - **Page Libraires** (`libraires.md`, `/libraires/`, lien dans le menu) : version Web de la fiche libraire de Simon (`fichiers/fiche-libraire-tortok.pdf`, téléchargeable depuis la page). Même contenu et même look que le PDF : feuille blanche posée sur le fond du site, gris `#d5d5d5`, Impact (repli Google Fonts Anton) ; styles dans `assets/css/fiche.css`, chargés via `extra_css: fiche.css` dans le front matter. Grille sur grand écran, une colonne sur cellulaire, une page à l'impression (Ctrl+P ; pas de bouton Imprimer, retiré à la demande de Simon). **Pas de numéro de téléphone sur la page Web** (décision de Simon le 2026-11-10 ; il reste dans le PDF). Tarz (le carlin) extrait du PDF : `images/tarz.png`. Si Simon modifie le PDF, mettre aussi à jour `libraires.md` (le texte y est recopié). Le résumé de la fiche diffère légèrement de `_data/tortok.yml` (ordre « ses dettes et son côlon »).
 - **Footer** : « Éditions Coquerelle » est un lien vers la page Éditeur ; icônes Facebook et Instagram (SVG en ligne, nouvel onglet), adresses dans `_config.yml` (`facebook_url`, `instagram_url`, et `social.links` pour jekyll-seo-tag). La page Facebook n'a pas de nom d'utilisateur (adresse `profile.php?id=…`) ; Instagram : `@editionscoquerelle`.
 - **Favicon** : `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png` à la racine (coquerelle jaune sur carré brun foncé, générés depuis `images/logo-coquerelle.png`).
@@ -105,4 +99,4 @@ Plan de structure des pages et de la navigation : voir `SITEMAP.md`.
 ## Étapes suivantes
 1. Dans quelques jours : vérifier dans Search Console que le sitemap est « Réussite » et que les pages sont indexées.
 2. Ajouter Simon ou le développeur comme utilisateurs de la propriété Search Console si besoin (Paramètres → Utilisateurs et autorisations).
-3. Plus tard : générer le catalogue depuis les collections `_livres/`/`_histoires/` (déclarer les collections, layout fiche), réactiver le carrousel des histoires.
+3. Fait le 2026-11-23 : catalogue généré depuis les collections et interface d'administration. Reste : donner l'accès à Simon (jeton GitHub) et tester un ajout réel.
